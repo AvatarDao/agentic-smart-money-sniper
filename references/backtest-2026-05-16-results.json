@@ -1,0 +1,3065 @@
+[
+  {
+    "n": 2,
+    "win_rate": 0.5,
+    "total_pnl_usd": 102.07,
+    "final_bankroll": 10102.07,
+    "return_pct": 1.02,
+    "mean_pnl_pct": 5.89,
+    "median_pnl_pct": 28.05,
+    "std_pnl_pct": 22.17,
+    "sharpe_eq": 0.266,
+    "max_drawdown_pct": 1.47,
+    "best_pnl_pct": 28.05,
+    "worst_pnl_pct": -16.28,
+    "exits": {
+      "sl_fired": 1,
+      "tp_fired": 1
+    },
+    "id": "S01",
+    "name": "v0.2 default",
+    "config": {
+      "tp_pct": 0.3,
+      "sl_pct": -0.15,
+      "timeout_h": 4,
+      "size_pct": 0.09,
+      "sold_ratio_max": 30,
+      "min_wallet_count": 3,
+      "wallet_types": [
+        "1",
+        "2",
+        "3"
+      ],
+      "min_market_cap": 20000,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 50
+    },
+    "trades": [
+      {
+        "token": "BMT",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 21.85,
+        "market_cap_usd": 74296.45889750823,
+        "size_usd": 900.0,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -146.575,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Wish",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 0.77,
+        "market_cap_usd": 432290.35155082535,
+        "size_usd": 886.81,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 248.6497,
+        "exit_event": "tp_fired"
+      }
+    ]
+  },
+  {
+    "n": 2,
+    "win_rate": 0.0,
+    "total_pnl_usd": -203.46,
+    "final_bankroll": 9796.54,
+    "return_pct": -2.03,
+    "mean_pnl_pct": -11.35,
+    "median_pnl_pct": -11.35,
+    "std_pnl_pct": 0.0,
+    "sharpe_eq": -113500000.0,
+    "max_drawdown_pct": 2.03,
+    "best_pnl_pct": -11.35,
+    "worst_pnl_pct": -11.35,
+    "exits": {
+      "sl_fired": 2
+    },
+    "id": "S02",
+    "name": "tight tp/sl",
+    "config": {
+      "tp_pct": 0.2,
+      "sl_pct": -0.1,
+      "timeout_h": 2,
+      "size_pct": 0.09,
+      "sold_ratio_max": 30,
+      "min_wallet_count": 3,
+      "wallet_types": [
+        "1",
+        "2",
+        "3"
+      ],
+      "min_market_cap": 20000,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 50
+    },
+    "trades": [
+      {
+        "token": "BMT",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 21.85,
+        "market_cap_usd": 74296.45889750823,
+        "size_usd": 900.0,
+        "pnl_pct": -0.1135,
+        "pnl_usd": -102.25,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Wish",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 0.77,
+        "market_cap_usd": 432290.35155082535,
+        "size_usd": 890.8,
+        "pnl_pct": -0.1135,
+        "pnl_usd": -101.2055,
+        "exit_event": "sl_fired"
+      }
+    ]
+  },
+  {
+    "n": 2,
+    "win_rate": 0.5,
+    "total_pnl_usd": 184.32,
+    "final_bankroll": 10184.32,
+    "return_pct": 1.84,
+    "mean_pnl_pct": 10.81,
+    "median_pnl_pct": 47.75,
+    "std_pnl_pct": 36.94,
+    "sharpe_eq": 0.293,
+    "max_drawdown_pct": 2.35,
+    "best_pnl_pct": 47.75,
+    "worst_pnl_pct": -26.13,
+    "exits": {
+      "sl_fired": 1,
+      "tp_fired": 1
+    },
+    "id": "S03",
+    "name": "wide tp/sl",
+    "config": {
+      "tp_pct": 0.5,
+      "sl_pct": -0.25,
+      "timeout_h": 8,
+      "size_pct": 0.09,
+      "sold_ratio_max": 30,
+      "min_wallet_count": 3,
+      "wallet_types": [
+        "1",
+        "2",
+        "3"
+      ],
+      "min_market_cap": 20000,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 50
+    },
+    "trades": [
+      {
+        "token": "BMT",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 21.85,
+        "market_cap_usd": 74296.45889750823,
+        "size_usd": 900.0,
+        "pnl_pct": -0.2613,
+        "pnl_usd": -235.225,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Wish",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 0.77,
+        "market_cap_usd": 432290.35155082535,
+        "size_usd": 878.83,
+        "pnl_pct": 0.4775,
+        "pnl_usd": 419.5412,
+        "exit_event": "tp_fired"
+      }
+    ]
+  },
+  {
+    "n": 2,
+    "win_rate": 0.0,
+    "total_pnl_usd": -364.59,
+    "final_bankroll": 9635.41,
+    "return_pct": -3.65,
+    "mean_pnl_pct": -20.38,
+    "median_pnl_pct": -9.71,
+    "std_pnl_pct": 10.67,
+    "sharpe_eq": -1.91,
+    "max_drawdown_pct": 3.65,
+    "best_pnl_pct": -9.71,
+    "worst_pnl_pct": -31.05,
+    "exits": {
+      "sl_fired": 1,
+      "timeout_close": 1
+    },
+    "id": "S04",
+    "name": "moonshot",
+    "config": {
+      "tp_pct": 1.0,
+      "sl_pct": -0.3,
+      "timeout_h": 8,
+      "size_pct": 0.09,
+      "sold_ratio_max": 30,
+      "min_wallet_count": 3,
+      "wallet_types": [
+        "1",
+        "2",
+        "3"
+      ],
+      "min_market_cap": 20000,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 50
+    },
+    "trades": [
+      {
+        "token": "BMT",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 21.85,
+        "market_cap_usd": 74296.45889750823,
+        "size_usd": 900.0,
+        "pnl_pct": -0.3105,
+        "pnl_usd": -279.55,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Wish",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 0.77,
+        "market_cap_usd": 432290.35155082535,
+        "size_usd": 874.84,
+        "pnl_pct": -0.0971,
+        "pnl_usd": -85.0435,
+        "exit_event": "timeout_close"
+      }
+    ]
+  },
+  {
+    "n": 2,
+    "win_rate": 0.0,
+    "total_pnl_usd": -115.52,
+    "final_bankroll": 9884.48,
+    "return_pct": -1.16,
+    "mean_pnl_pct": -6.43,
+    "median_pnl_pct": -6.43,
+    "std_pnl_pct": 0.0,
+    "sharpe_eq": -64300000.0,
+    "max_drawdown_pct": 1.16,
+    "best_pnl_pct": -6.43,
+    "worst_pnl_pct": -6.43,
+    "exits": {
+      "sl_fired": 2
+    },
+    "id": "S05",
+    "name": "scalp",
+    "config": {
+      "tp_pct": 0.1,
+      "sl_pct": -0.05,
+      "timeout_h": 1,
+      "size_pct": 0.09,
+      "sold_ratio_max": 30,
+      "min_wallet_count": 3,
+      "wallet_types": [
+        "1",
+        "2",
+        "3"
+      ],
+      "min_market_cap": 20000,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 50
+    },
+    "trades": [
+      {
+        "token": "BMT",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 21.85,
+        "market_cap_usd": 74296.45889750823,
+        "size_usd": 900.0,
+        "pnl_pct": -0.0643,
+        "pnl_usd": -57.925,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Wish",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 0.77,
+        "market_cap_usd": 432290.35155082535,
+        "size_usd": 894.79,
+        "pnl_pct": -0.0643,
+        "pnl_usd": -57.59,
+        "exit_event": "sl_fired"
+      }
+    ]
+  },
+  {
+    "n": 0,
+    "id": "S06",
+    "name": "strong cluster (\u22655)",
+    "config": {
+      "tp_pct": 0.3,
+      "sl_pct": -0.15,
+      "timeout_h": 4,
+      "size_pct": 0.15,
+      "sold_ratio_max": 30,
+      "min_wallet_count": 5,
+      "wallet_types": [
+        "1",
+        "2",
+        "3"
+      ],
+      "min_market_cap": 20000,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 50
+    },
+    "trades": []
+  },
+  {
+    "n": 2,
+    "win_rate": 0.5,
+    "total_pnl_usd": 102.07,
+    "final_bankroll": 10102.07,
+    "return_pct": 1.02,
+    "mean_pnl_pct": 5.89,
+    "median_pnl_pct": 28.05,
+    "std_pnl_pct": 22.17,
+    "sharpe_eq": 0.266,
+    "max_drawdown_pct": 1.47,
+    "best_pnl_pct": 28.05,
+    "worst_pnl_pct": -16.28,
+    "exits": {
+      "sl_fired": 1,
+      "tp_fired": 1
+    },
+    "id": "S07",
+    "name": "loose cluster (\u22652)",
+    "config": {
+      "tp_pct": 0.3,
+      "sl_pct": -0.15,
+      "timeout_h": 4,
+      "size_pct": 0.09,
+      "sold_ratio_max": 30,
+      "min_wallet_count": 2,
+      "wallet_types": [
+        "1",
+        "2",
+        "3"
+      ],
+      "min_market_cap": 20000,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 50
+    },
+    "trades": [
+      {
+        "token": "BMT",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 21.85,
+        "market_cap_usd": 74296.45889750823,
+        "size_usd": 900.0,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -146.575,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Wish",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 0.77,
+        "market_cap_usd": 432290.35155082535,
+        "size_usd": 886.81,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 248.6497,
+        "exit_event": "tp_fired"
+      }
+    ]
+  },
+  {
+    "n": 0,
+    "id": "S08",
+    "name": "SM only",
+    "config": {
+      "tp_pct": 0.3,
+      "sl_pct": -0.15,
+      "timeout_h": 4,
+      "size_pct": 0.09,
+      "sold_ratio_max": 30,
+      "min_wallet_count": 3,
+      "wallet_types": [
+        "1"
+      ],
+      "min_market_cap": 20000,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 50
+    },
+    "trades": []
+  },
+  {
+    "n": 1,
+    "win_rate": 1.0,
+    "total_pnl_usd": 252.35,
+    "final_bankroll": 10252.35,
+    "return_pct": 2.52,
+    "mean_pnl_pct": 28.05,
+    "median_pnl_pct": 28.05,
+    "std_pnl_pct": 0.0,
+    "sharpe_eq": 280500000.0,
+    "max_drawdown_pct": 0,
+    "best_pnl_pct": 28.05,
+    "worst_pnl_pct": 28.05,
+    "exits": {
+      "tp_fired": 1
+    },
+    "id": "S09",
+    "name": "KOL only",
+    "config": {
+      "tp_pct": 0.3,
+      "sl_pct": -0.15,
+      "timeout_h": 4,
+      "size_pct": 0.09,
+      "sold_ratio_max": 30,
+      "min_wallet_count": 3,
+      "wallet_types": [
+        "2"
+      ],
+      "min_market_cap": 20000,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 50
+    },
+    "trades": [
+      {
+        "token": "Wish",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 0.77,
+        "market_cap_usd": 432290.35155082535,
+        "size_usd": 900.0,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 252.35,
+        "exit_event": "tp_fired"
+      }
+    ]
+  },
+  {
+    "n": 1,
+    "win_rate": 0.0,
+    "total_pnl_usd": -146.57,
+    "final_bankroll": 9853.42,
+    "return_pct": -1.47,
+    "mean_pnl_pct": -16.28,
+    "median_pnl_pct": -16.28,
+    "std_pnl_pct": 0.0,
+    "sharpe_eq": -162800000.0,
+    "max_drawdown_pct": 1.47,
+    "best_pnl_pct": -16.28,
+    "worst_pnl_pct": -16.28,
+    "exits": {
+      "sl_fired": 1
+    },
+    "id": "S10",
+    "name": "Whale only",
+    "config": {
+      "tp_pct": 0.3,
+      "sl_pct": -0.15,
+      "timeout_h": 4,
+      "size_pct": 0.09,
+      "sold_ratio_max": 30,
+      "min_wallet_count": 3,
+      "wallet_types": [
+        "3"
+      ],
+      "min_market_cap": 20000,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 50
+    },
+    "trades": [
+      {
+        "token": "BMT",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 21.85,
+        "market_cap_usd": 74296.45889750823,
+        "size_usd": 900.0,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -146.575,
+        "exit_event": "sl_fired"
+      }
+    ]
+  },
+  {
+    "n": 1,
+    "win_rate": 1.0,
+    "total_pnl_usd": 252.35,
+    "final_bankroll": 10252.35,
+    "return_pct": 2.52,
+    "mean_pnl_pct": 28.05,
+    "median_pnl_pct": 28.05,
+    "std_pnl_pct": 0.0,
+    "sharpe_eq": 280500000.0,
+    "max_drawdown_pct": 0,
+    "best_pnl_pct": 28.05,
+    "worst_pnl_pct": 28.05,
+    "exits": {
+      "tp_fired": 1
+    },
+    "id": "S11",
+    "name": "very buy-heavy <10%",
+    "config": {
+      "tp_pct": 0.3,
+      "sl_pct": -0.15,
+      "timeout_h": 4,
+      "size_pct": 0.09,
+      "sold_ratio_max": 10,
+      "min_wallet_count": 3,
+      "wallet_types": [
+        "1",
+        "2",
+        "3"
+      ],
+      "min_market_cap": 20000,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 50
+    },
+    "trades": [
+      {
+        "token": "Wish",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 0.77,
+        "market_cap_usd": 432290.35155082535,
+        "size_usd": 900.0,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 252.35,
+        "exit_event": "tp_fired"
+      }
+    ]
+  },
+  {
+    "n": 5,
+    "win_rate": 0.2,
+    "total_pnl_usd": -207.72,
+    "final_bankroll": 9792.28,
+    "return_pct": -2.08,
+    "mean_pnl_pct": -4.51,
+    "median_pnl_pct": -16.28,
+    "std_pnl_pct": 17.22,
+    "sharpe_eq": -0.262,
+    "max_drawdown_pct": 3.07,
+    "best_pnl_pct": 28.05,
+    "worst_pnl_pct": -16.28,
+    "exits": {
+      "timeout_close": 1,
+      "sl_fired": 3,
+      "tp_fired": 1
+    },
+    "id": "S12",
+    "name": "permissive sold <50%",
+    "config": {
+      "tp_pct": 0.3,
+      "sl_pct": -0.15,
+      "timeout_h": 4,
+      "size_pct": 0.09,
+      "sold_ratio_max": 50,
+      "min_wallet_count": 3,
+      "wallet_types": [
+        "1",
+        "2",
+        "3"
+      ],
+      "min_market_cap": 20000,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 50
+    },
+    "trades": [
+      {
+        "token": "Openhuman",
+        "wallet_type": "2",
+        "wallet_count": 3,
+        "sold_ratio_pct": 34.04,
+        "market_cap_usd": 422228.88811292755,
+        "size_usd": 900.0,
+        "pnl_pct": -0.0178,
+        "pnl_usd": -16.132,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "BMT",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 21.85,
+        "market_cap_usd": 74296.45889750823,
+        "size_usd": 898.55,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -146.3387,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "SPCX",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 31.41,
+        "market_cap_usd": 42777.56436501577,
+        "size_usd": 885.38,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -144.1952,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Wish",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 0.77,
+        "market_cap_usd": 432290.35155082535,
+        "size_usd": 872.4,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 244.6082,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "HELPCJ",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 36.24,
+        "market_cap_usd": 31683.568674659975,
+        "size_usd": 894.41,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -145.666,
+        "exit_event": "sl_fired"
+      }
+    ]
+  },
+  {
+    "n": 2,
+    "win_rate": 0.5,
+    "total_pnl_usd": 102.07,
+    "final_bankroll": 10102.07,
+    "return_pct": 1.02,
+    "mean_pnl_pct": 5.89,
+    "median_pnl_pct": 28.05,
+    "std_pnl_pct": 22.17,
+    "sharpe_eq": 0.266,
+    "max_drawdown_pct": 1.47,
+    "best_pnl_pct": 28.05,
+    "worst_pnl_pct": -16.28,
+    "exits": {
+      "sl_fired": 1,
+      "tp_fired": 1
+    },
+    "id": "S13",
+    "name": "strict top10 < 25%",
+    "config": {
+      "tp_pct": 0.3,
+      "sl_pct": -0.15,
+      "timeout_h": 4,
+      "size_pct": 0.09,
+      "sold_ratio_max": 30,
+      "min_wallet_count": 3,
+      "wallet_types": [
+        "1",
+        "2",
+        "3"
+      ],
+      "min_market_cap": 20000,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 25
+    },
+    "trades": [
+      {
+        "token": "BMT",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 21.85,
+        "market_cap_usd": 74296.45889750823,
+        "size_usd": 900.0,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -146.575,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Wish",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 0.77,
+        "market_cap_usd": 432290.35155082535,
+        "size_usd": 886.81,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 248.6497,
+        "exit_event": "tp_fired"
+      }
+    ]
+  },
+  {
+    "n": 2,
+    "win_rate": 0.5,
+    "total_pnl_usd": 57.53,
+    "final_bankroll": 10057.53,
+    "return_pct": 0.58,
+    "mean_pnl_pct": 5.89,
+    "median_pnl_pct": 28.05,
+    "std_pnl_pct": 22.17,
+    "sharpe_eq": 0.266,
+    "max_drawdown_pct": 0.81,
+    "best_pnl_pct": 28.05,
+    "worst_pnl_pct": -16.28,
+    "exits": {
+      "sl_fired": 1,
+      "tp_fired": 1
+    },
+    "id": "S14",
+    "name": "small size 5%",
+    "config": {
+      "tp_pct": 0.3,
+      "sl_pct": -0.15,
+      "timeout_h": 4,
+      "size_pct": 0.05,
+      "sold_ratio_max": 30,
+      "min_wallet_count": 3,
+      "wallet_types": [
+        "1",
+        "2",
+        "3"
+      ],
+      "min_market_cap": 20000,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 50
+    },
+    "trades": [
+      {
+        "token": "BMT",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 21.85,
+        "market_cap_usd": 74296.45889750823,
+        "size_usd": 500.0,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -81.475,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Wish",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 0.77,
+        "market_cap_usd": 432290.35155082535,
+        "size_usd": 495.93,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 139.0073,
+        "exit_event": "tp_fired"
+      }
+    ]
+  },
+  {
+    "n": 2,
+    "win_rate": 0.5,
+    "total_pnl_usd": 217.03,
+    "final_bankroll": 10217.03,
+    "return_pct": 2.17,
+    "mean_pnl_pct": 5.89,
+    "median_pnl_pct": 28.05,
+    "std_pnl_pct": 22.17,
+    "sharpe_eq": 0.266,
+    "max_drawdown_pct": 3.26,
+    "best_pnl_pct": 28.05,
+    "worst_pnl_pct": -16.28,
+    "exits": {
+      "sl_fired": 1,
+      "tp_fired": 1
+    },
+    "id": "S15",
+    "name": "big size 20%",
+    "config": {
+      "tp_pct": 0.3,
+      "sl_pct": -0.15,
+      "timeout_h": 4,
+      "size_pct": 0.2,
+      "sold_ratio_max": 30,
+      "min_wallet_count": 3,
+      "wallet_types": [
+        "1",
+        "2",
+        "3"
+      ],
+      "min_market_cap": 20000,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 50
+    },
+    "trades": [
+      {
+        "token": "BMT",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 21.85,
+        "market_cap_usd": 74296.45889750823,
+        "size_usd": 2000.0,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -325.6,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Wish",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 0.77,
+        "market_cap_usd": 432290.35155082535,
+        "size_usd": 1934.88,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 542.6338,
+        "exit_event": "tp_fired"
+      }
+    ]
+  },
+  {
+    "n": 0,
+    "id": "S16",
+    "name": "big MC > $500K only",
+    "config": {
+      "tp_pct": 0.3,
+      "sl_pct": -0.15,
+      "timeout_h": 4,
+      "size_pct": 0.09,
+      "sold_ratio_max": 30,
+      "min_wallet_count": 3,
+      "wallet_types": [
+        "1",
+        "2",
+        "3"
+      ],
+      "min_market_cap": 500000,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 50
+    },
+    "trades": []
+  },
+  {
+    "n": 1,
+    "win_rate": 0.0,
+    "total_pnl_usd": -190.9,
+    "final_bankroll": 9809.1,
+    "return_pct": -1.91,
+    "mean_pnl_pct": -21.2,
+    "median_pnl_pct": -21.2,
+    "std_pnl_pct": 0.0,
+    "sharpe_eq": -212000000.0,
+    "max_drawdown_pct": 1.91,
+    "best_pnl_pct": -21.2,
+    "worst_pnl_pct": -21.2,
+    "exits": {
+      "sl_fired": 1
+    },
+    "id": "S17",
+    "name": "small MC < $100K",
+    "config": {
+      "tp_pct": 0.5,
+      "sl_pct": -0.2,
+      "timeout_h": 4,
+      "size_pct": 0.09,
+      "sold_ratio_max": 30,
+      "min_wallet_count": 3,
+      "wallet_types": [
+        "1",
+        "2",
+        "3"
+      ],
+      "min_market_cap": 20000,
+      "max_market_cap": 100000,
+      "max_top10_pct": 50
+    },
+    "trades": [
+      {
+        "token": "BMT",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 21.85,
+        "market_cap_usd": 74296.45889750823,
+        "size_usd": 900.0,
+        "pnl_pct": -0.212,
+        "pnl_usd": -190.9,
+        "exit_event": "sl_fired"
+      }
+    ]
+  },
+  {
+    "n": 2,
+    "win_rate": 0.5,
+    "total_pnl_usd": 102.07,
+    "final_bankroll": 10102.07,
+    "return_pct": 1.02,
+    "mean_pnl_pct": 5.89,
+    "median_pnl_pct": 28.05,
+    "std_pnl_pct": 22.17,
+    "sharpe_eq": 0.266,
+    "max_drawdown_pct": 1.47,
+    "best_pnl_pct": 28.05,
+    "worst_pnl_pct": -16.28,
+    "exits": {
+      "sl_fired": 1,
+      "tp_fired": 1
+    },
+    "id": "S18",
+    "name": "hold longer 12h",
+    "config": {
+      "tp_pct": 0.3,
+      "sl_pct": -0.15,
+      "timeout_h": 12,
+      "size_pct": 0.09,
+      "sold_ratio_max": 30,
+      "min_wallet_count": 3,
+      "wallet_types": [
+        "1",
+        "2",
+        "3"
+      ],
+      "min_market_cap": 20000,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 50
+    },
+    "trades": [
+      {
+        "token": "BMT",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 21.85,
+        "market_cap_usd": 74296.45889750823,
+        "size_usd": 900.0,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -146.575,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Wish",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 0.77,
+        "market_cap_usd": 432290.35155082535,
+        "size_usd": 886.81,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 248.6497,
+        "exit_event": "tp_fired"
+      }
+    ]
+  },
+  {
+    "n": 2,
+    "win_rate": 0.5,
+    "total_pnl_usd": 62.8,
+    "final_bankroll": 10062.8,
+    "return_pct": 0.63,
+    "mean_pnl_pct": 3.76,
+    "median_pnl_pct": 28.05,
+    "std_pnl_pct": 24.29,
+    "sharpe_eq": 0.155,
+    "max_drawdown_pct": 1.85,
+    "best_pnl_pct": 28.05,
+    "worst_pnl_pct": -20.53,
+    "exits": {
+      "timeout_close": 1,
+      "tp_fired": 1
+    },
+    "id": "S19",
+    "name": "TP only (no SL)",
+    "config": {
+      "tp_pct": 0.3,
+      "sl_pct": -0.99,
+      "timeout_h": 4,
+      "size_pct": 0.09,
+      "sold_ratio_max": 30,
+      "min_wallet_count": 3,
+      "wallet_types": [
+        "1",
+        "2",
+        "3"
+      ],
+      "min_market_cap": 20000,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 50
+    },
+    "trades": [
+      {
+        "token": "BMT",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 21.85,
+        "market_cap_usd": 74296.45889750823,
+        "size_usd": 900.0,
+        "pnl_pct": -0.2053,
+        "pnl_usd": -184.8779,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "Wish",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 0.77,
+        "market_cap_usd": 432290.35155082535,
+        "size_usd": 883.36,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 247.6828,
+        "exit_event": "tp_fired"
+      }
+    ]
+  },
+  {
+    "n": 2,
+    "win_rate": 0.0,
+    "total_pnl_usd": -80.23,
+    "final_bankroll": 9919.77,
+    "return_pct": -0.8,
+    "mean_pnl_pct": -4.46,
+    "median_pnl_pct": -4.46,
+    "std_pnl_pct": 0.0,
+    "sharpe_eq": -44600000.0,
+    "max_drawdown_pct": 0.8,
+    "best_pnl_pct": -4.46,
+    "worst_pnl_pct": -4.46,
+    "exits": {
+      "sl_fired": 2
+    },
+    "id": "S20",
+    "name": "very tight scalp",
+    "config": {
+      "tp_pct": 0.05,
+      "sl_pct": -0.03,
+      "timeout_h": 1,
+      "size_pct": 0.09,
+      "sold_ratio_max": 30,
+      "min_wallet_count": 3,
+      "wallet_types": [
+        "1",
+        "2",
+        "3"
+      ],
+      "min_market_cap": 20000,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 50
+    },
+    "trades": [
+      {
+        "token": "BMT",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 21.85,
+        "market_cap_usd": 74296.45889750823,
+        "size_usd": 900.0,
+        "pnl_pct": -0.0446,
+        "pnl_usd": -40.195,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Wish",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 0.77,
+        "market_cap_usd": 432290.35155082535,
+        "size_usd": 896.38,
+        "pnl_pct": -0.0446,
+        "pnl_usd": -40.0338,
+        "exit_event": "sl_fired"
+      }
+    ]
+  },
+  {
+    "n": 4,
+    "win_rate": 0.5,
+    "total_pnl_usd": 340.29,
+    "final_bankroll": 10340.29,
+    "return_pct": 3.4,
+    "mean_pnl_pct": 9.51,
+    "median_pnl_pct": 28.05,
+    "std_pnl_pct": 19.24,
+    "sharpe_eq": 0.494,
+    "max_drawdown_pct": 1.62,
+    "best_pnl_pct": 28.05,
+    "worst_pnl_pct": -16.28,
+    "exits": {
+      "timeout_close": 1,
+      "sl_fired": 1,
+      "tp_fired": 2
+    },
+    "id": "S21",
+    "name": "KOL + permissive",
+    "config": {
+      "tp_pct": 0.3,
+      "sl_pct": -0.15,
+      "timeout_h": 4,
+      "size_pct": 0.09,
+      "sold_ratio_max": 50,
+      "min_wallet_count": 2,
+      "wallet_types": [
+        "2"
+      ],
+      "min_market_cap": 20000,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 50
+    },
+    "trades": [
+      {
+        "token": "Openhuman",
+        "wallet_type": "2",
+        "wallet_count": 3,
+        "sold_ratio_pct": 34.04,
+        "market_cap_usd": 422228.88811292755,
+        "size_usd": 900.0,
+        "pnl_pct": -0.0178,
+        "pnl_usd": -16.132,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "BMT",
+        "wallet_type": "2",
+        "wallet_count": 3,
+        "sold_ratio_pct": 32.7,
+        "market_cap_usd": 74296.45889750823,
+        "size_usd": 898.55,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -146.3387,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Wish",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 0.77,
+        "market_cap_usd": 432290.35155082535,
+        "size_usd": 885.38,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 248.2484,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "HELPCJ",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 32.1,
+        "market_cap_usd": 31683.568674659975,
+        "size_usd": 907.72,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 254.5155,
+        "exit_event": "tp_fired"
+      }
+    ]
+  },
+  {
+    "n": 64,
+    "win_rate": 0.28125,
+    "total_pnl_usd": -2406.12,
+    "final_bankroll": 7593.88,
+    "return_pct": -24.06,
+    "mean_pnl_pct": -4.64,
+    "median_pnl_pct": -16.27,
+    "std_pnl_pct": 16.49,
+    "sharpe_eq": -0.281,
+    "max_drawdown_pct": 27.4,
+    "best_pnl_pct": 28.05,
+    "worst_pnl_pct": -16.28,
+    "exits": {
+      "timeout_close": 14,
+      "sl_fired": 36,
+      "tp_fired": 11,
+      "data_exhausted": 3
+    },
+    "id": "S22",
+    "name": "contrarian sell>70%",
+    "config": {
+      "tp_pct": 0.3,
+      "sl_pct": -0.15,
+      "timeout_h": 4,
+      "size_pct": 0.09,
+      "sold_ratio_max": 100,
+      "min_wallet_count": 3,
+      "wallet_types": [
+        "1",
+        "2",
+        "3"
+      ],
+      "min_market_cap": 20000,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 50
+    },
+    "trades": [
+      {
+        "token": "ALONE",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 86.49,
+        "market_cap_usd": 257668.7084292481,
+        "size_usd": 900.0,
+        "pnl_pct": -0.0178,
+        "pnl_usd": -16.1357,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "MARMOT",
+        "wallet_type": "3",
+        "wallet_count": 5,
+        "sold_ratio_pct": 80.62,
+        "market_cap_usd": 28656.502232091167,
+        "size_usd": 898.55,
+        "pnl_pct": -0.0955,
+        "pnl_usd": -85.9064,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "DAIDAI",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 41675.44248609218,
+        "size_usd": 890.82,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -145.0803,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Jun",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 27009.720255303135,
+        "size_usd": 877.76,
+        "pnl_pct": 0.0025,
+        "pnl_usd": 2.1368,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "RAGEGUY",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 89.8,
+        "market_cap_usd": 3033236.7060728054,
+        "size_usd": 877.95,
+        "pnl_pct": -0.0523,
+        "pnl_usd": -46.026,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "YUNO",
+        "wallet_type": "2",
+        "wallet_count": 3,
+        "sold_ratio_pct": 94.39,
+        "market_cap_usd": 22931.2427135252,
+        "size_usd": 873.81,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -142.3124,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "ICEMAN",
+        "wallet_type": "3",
+        "wallet_count": 4,
+        "sold_ratio_pct": 91.59,
+        "market_cap_usd": 34894.77440364892,
+        "size_usd": 861.0,
+        "pnl_pct": -0.0414,
+        "pnl_usd": -35.7683,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "HERMES",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 279475.3042216827,
+        "size_usd": 857.78,
+        "pnl_pct": -0.0504,
+        "pnl_usd": -43.3211,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "Goblin",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 95.57,
+        "market_cap_usd": 8211256.061396921,
+        "size_usd": 853.88,
+        "pnl_pct": -0.0428,
+        "pnl_usd": -36.6659,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "Clude",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 87.58,
+        "market_cap_usd": 2063739.8489955093,
+        "size_usd": 850.58,
+        "pnl_pct": -0.0035,
+        "pnl_usd": -3.0613,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "WYNN",
+        "wallet_type": "2",
+        "wallet_count": 6,
+        "sold_ratio_pct": 88.56,
+        "market_cap_usd": 39710.37045656995,
+        "size_usd": 850.31,
+        "pnl_pct": 0.0084,
+        "pnl_usd": 7.0316,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "TROLL",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 70.65,
+        "market_cap_usd": 105429194.61860454,
+        "size_usd": 850.94,
+        "pnl_pct": -0.0333,
+        "pnl_usd": -28.4159,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "Ebola",
+        "wallet_type": "2",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 119918.75416852963,
+        "size_usd": 848.38,
+        "pnl_pct": -0.0731,
+        "pnl_usd": -62.1309,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "Dust",
+        "wallet_type": "2",
+        "wallet_count": 3,
+        "sold_ratio_pct": 77.86,
+        "market_cap_usd": 239180.9342726968,
+        "size_usd": 842.79,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -137.2642,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "DIAMOND",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 71.31,
+        "market_cap_usd": 223225.841862051,
+        "size_usd": 830.44,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -135.2537,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "VILLAGEBOY",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 77.88,
+        "market_cap_usd": 53639.932325072186,
+        "size_usd": 818.26,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -133.2725,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Marvin",
+        "wallet_type": "1",
+        "wallet_count": 5,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 60457.29494606479,
+        "size_usd": 806.27,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -131.3204,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "PAGO",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 78.34,
+        "market_cap_usd": 250942.71564305064,
+        "size_usd": 794.45,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -129.3969,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "FAHHHH",
+        "wallet_type": "1",
+        "wallet_count": 4,
+        "sold_ratio_pct": 87.5,
+        "market_cap_usd": 626679.9000727866,
+        "size_usd": 782.81,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -127.5016,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "COPIUM",
+        "wallet_type": "1",
+        "wallet_count": 4,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 69841.49436565576,
+        "size_usd": 771.33,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -125.634,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "SQUIRE",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 704208.5432133896,
+        "size_usd": 760.02,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 213.0865,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "MONET",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 61395.00201313838,
+        "size_usd": 779.2,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -126.9149,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "SOLANAAI",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 32183.347210456188,
+        "size_usd": 767.78,
+        "pnl_pct": -0.1627,
+        "pnl_usd": -125.056,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "PRIMIS",
+        "wallet_type": "2",
+        "wallet_count": 3,
+        "sold_ratio_pct": 81.5,
+        "market_cap_usd": 936223.7039872156,
+        "size_usd": 756.52,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 212.1048,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "HANTA",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 92.14,
+        "market_cap_usd": 2178611.4689506963,
+        "size_usd": 775.61,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -126.331,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "CHUD",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 992471.788432514,
+        "size_usd": 764.24,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 214.2702,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "SPCX",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 1010328.7557742532,
+        "size_usd": 783.53,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -127.6191,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "SPCX",
+        "wallet_type": "1",
+        "wallet_count": 6,
+        "sold_ratio_pct": 85.41,
+        "market_cap_usd": 179568.01249705662,
+        "size_usd": 772.04,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 216.4577,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "SPCX",
+        "wallet_type": "1",
+        "wallet_count": 8,
+        "sold_ratio_pct": 79.53,
+        "market_cap_usd": 42777.56436501577,
+        "size_usd": 791.52,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -128.9204,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "SPCX",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 98.45,
+        "market_cap_usd": 45519.05060817272,
+        "size_usd": 779.92,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -127.032,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "EOS",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 638835.9294995838,
+        "size_usd": 768.49,
+        "pnl_pct": -0.1627,
+        "pnl_usd": -125.1713,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "WORLDCUP",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 85.49,
+        "market_cap_usd": 2004549.912336938,
+        "size_usd": 757.22,
+        "pnl_pct": 0.0498,
+        "pnl_usd": 37.6396,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "ASTROID",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 97.08,
+        "market_cap_usd": 109993.96064902576,
+        "size_usd": 760.61,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 213.2509,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "Dragon",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 91.29,
+        "market_cap_usd": 25437.39757541105,
+        "size_usd": 779.8,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -127.0128,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Ouroboros",
+        "wallet_type": "1",
+        "wallet_count": 8,
+        "sold_ratio_pct": 89.41,
+        "market_cap_usd": 51144.06925736733,
+        "size_usd": 768.37,
+        "pnl_pct": -0.1627,
+        "pnl_usd": -125.1523,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "COAR",
+        "wallet_type": "1",
+        "wallet_count": 5,
+        "sold_ratio_pct": 92.12,
+        "market_cap_usd": 93260.94944855658,
+        "size_usd": 757.11,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -123.3192,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "PIZZA",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 70.83,
+        "market_cap_usd": 212139.68667082494,
+        "size_usd": 746.01,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -121.5129,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "tbh",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 243541.15632527834,
+        "size_usd": 735.07,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -119.733,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "OuuuShi",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 32044.64302852694,
+        "size_usd": 724.3,
+        "pnl_pct": -0.1627,
+        "pnl_usd": -117.9792,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "gnosis",
+        "wallet_type": "2",
+        "wallet_count": 7,
+        "sold_ratio_pct": 83.16,
+        "market_cap_usd": 63026.226241338394,
+        "size_usd": 713.68,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -116.2511,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "BTC",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 138657.40449445054,
+        "size_usd": 703.22,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -114.5483,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "CLAUFFICE",
+        "wallet_type": "2",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 32280.71653194461,
+        "size_usd": 692.91,
+        "pnl_pct": -0.1627,
+        "pnl_usd": -112.8705,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "M32",
+        "wallet_type": "1",
+        "wallet_count": 5,
+        "sold_ratio_pct": 90.13,
+        "market_cap_usd": 284637.0460166508,
+        "size_usd": 682.75,
+        "pnl_pct": 0.0741,
+        "pnl_usd": 50.4693,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "Openhuman",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 92.16,
+        "market_cap_usd": 422228.88811292755,
+        "size_usd": 687.29,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -111.9565,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "F.03",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 97.86,
+        "market_cap_usd": 24227.519346941783,
+        "size_usd": 677.21,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -110.3166,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Wish",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 88.24,
+        "market_cap_usd": 432290.35155082535,
+        "size_usd": 667.29,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 187.0736,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "GAPLA",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 72.55,
+        "market_cap_usd": 68932.97242126307,
+        "size_usd": 684.12,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -111.4409,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "DIRECTOR",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 443150.3389482499,
+        "size_usd": 674.09,
+        "pnl_pct": -0.1627,
+        "pnl_usd": -109.8085,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "BABYWOJAK",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 98.67,
+        "market_cap_usd": 144776.914307999,
+        "size_usd": 664.21,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 186.2108,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "SLOPPER",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 116500.82552588286,
+        "size_usd": 680.97,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -110.9276,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Twerk",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 32270.739863599007,
+        "size_usd": 670.99,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -109.3028,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "VIRL",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 1152500.7775088537,
+        "size_usd": 661.15,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 185.352,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "simulator",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 74.3,
+        "market_cap_usd": 101494.58767449111,
+        "size_usd": 677.83,
+        "pnl_pct": -0.0797,
+        "pnl_usd": -54.0893,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "BALLSACKDORKL",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 99.03,
+        "market_cap_usd": 113891.78667056009,
+        "size_usd": 672.96,
+        "pnl_pct": -0.1627,
+        "pnl_usd": -109.6245,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "hentai",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 77.91,
+        "market_cap_usd": 577412.7327703853,
+        "size_usd": 663.1,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -108.0188,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Yae",
+        "wallet_type": "1",
+        "wallet_count": 6,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 1582379.9992552982,
+        "size_usd": 653.37,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 183.1713,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "RABBIT",
+        "wallet_type": "1",
+        "wallet_count": 4,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 157312.5928226573,
+        "size_usd": 669.86,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 187.7955,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "OFFCHAIN",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 87.47,
+        "market_cap_usd": 163858.4188651684,
+        "size_usd": 686.76,
+        "pnl_pct": 0.0216,
+        "pnl_usd": 14.7235,
+        "exit_event": "data_exhausted"
+      },
+      {
+        "token": "LUCY",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 192973.32565679375,
+        "size_usd": 688.09,
+        "pnl_pct": -0.1627,
+        "pnl_usd": -112.086,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "RoyalPop",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 94.27,
+        "market_cap_usd": 1893292.6889159759,
+        "size_usd": 678.0,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 190.0784,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "SCHIZO",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 83.61,
+        "market_cap_usd": 102753.6855033087,
+        "size_usd": 695.11,
+        "pnl_pct": 0.0078,
+        "pnl_usd": 5.3171,
+        "exit_event": "data_exhausted"
+      },
+      {
+        "token": "BMT",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 74296.45889750823,
+        "size_usd": 695.58,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -113.3062,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Mbappe",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 71.08,
+        "market_cap_usd": 228109.7985753937,
+        "size_usd": 685.39,
+        "pnl_pct": 0.1336,
+        "pnl_usd": 91.4695,
+        "exit_event": "data_exhausted"
+      },
+      {
+        "token": "LADA",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 89.63,
+        "market_cap_usd": 267352.1579936996,
+        "size_usd": 693.62,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -112.9864,
+        "exit_event": "sl_fired"
+      }
+    ]
+  },
+  {
+    "n": 0,
+    "id": "S23",
+    "name": "SM + tight",
+    "config": {
+      "tp_pct": 0.2,
+      "sl_pct": -0.1,
+      "timeout_h": 4,
+      "size_pct": 0.09,
+      "sold_ratio_max": 30,
+      "min_wallet_count": 3,
+      "wallet_types": [
+        "1"
+      ],
+      "min_market_cap": 20000,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 50
+    },
+    "trades": []
+  },
+  {
+    "n": 97,
+    "win_rate": 0.26804123711340205,
+    "total_pnl_usd": -3520.46,
+    "final_bankroll": 6479.54,
+    "return_pct": -35.2,
+    "mean_pnl_pct": -4.82,
+    "median_pnl_pct": -16.27,
+    "std_pnl_pct": 16.96,
+    "sharpe_eq": -0.284,
+    "max_drawdown_pct": 37.13,
+    "best_pnl_pct": 28.05,
+    "worst_pnl_pct": -16.28,
+    "exits": {
+      "timeout_close": 18,
+      "sl_fired": 58,
+      "tp_fired": 18,
+      "data_exhausted": 3
+    },
+    "id": "S24",
+    "name": "no filter all-in",
+    "config": {
+      "tp_pct": 0.3,
+      "sl_pct": -0.15,
+      "timeout_h": 4,
+      "size_pct": 0.09,
+      "sold_ratio_max": 100,
+      "min_wallet_count": 2,
+      "wallet_types": [
+        "1",
+        "2",
+        "3"
+      ],
+      "min_market_cap": 0,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 100
+    },
+    "trades": [
+      {
+        "token": "ANTROPIANS",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 91.39,
+        "market_cap_usd": 5508.900364185717,
+        "size_usd": 900.0,
+        "pnl_pct": -0.0027,
+        "pnl_usd": -2.5531,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "ALONE",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 86.49,
+        "market_cap_usd": 257668.7084292481,
+        "size_usd": 899.77,
+        "pnl_pct": -0.0178,
+        "pnl_usd": -16.1316,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "MARMOT",
+        "wallet_type": "3",
+        "wallet_count": 5,
+        "sold_ratio_pct": 80.62,
+        "market_cap_usd": 28656.502232091167,
+        "size_usd": 898.32,
+        "pnl_pct": -0.0955,
+        "pnl_usd": -85.8844,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "DAIDAI",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 41675.44248609218,
+        "size_usd": 890.59,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -145.0433,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Jun",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 27009.720255303135,
+        "size_usd": 877.53,
+        "pnl_pct": 0.0025,
+        "pnl_usd": 2.1362,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "RAGEGUY",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 89.8,
+        "market_cap_usd": 3033236.7060728054,
+        "size_usd": 877.73,
+        "pnl_pct": -0.0523,
+        "pnl_usd": -46.0143,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "YUNO",
+        "wallet_type": "2",
+        "wallet_count": 3,
+        "sold_ratio_pct": 94.39,
+        "market_cap_usd": 22931.2427135252,
+        "size_usd": 873.59,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -142.2761,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "DRAKE",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 5801.400897091705,
+        "size_usd": 860.78,
+        "pnl_pct": 0.0033,
+        "pnl_usd": 2.7489,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "\u82bd\u5c0f\u4e03",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 86.38,
+        "market_cap_usd": 13358.499676097286,
+        "size_usd": 861.03,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -140.2324,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "HIM",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 73.78,
+        "market_cap_usd": 7089.441422288635,
+        "size_usd": 848.41,
+        "pnl_pct": -0.0723,
+        "pnl_usd": -61.4133,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "\u25ce",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 6335.416438798783,
+        "size_usd": 842.88,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -137.2788,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "ICEMAN",
+        "wallet_type": "3",
+        "wallet_count": 4,
+        "sold_ratio_pct": 91.59,
+        "market_cap_usd": 34894.77440364892,
+        "size_usd": 830.53,
+        "pnl_pct": -0.0414,
+        "pnl_usd": -34.5058,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "HERMES",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 279475.3042216827,
+        "size_usd": 827.42,
+        "pnl_pct": -0.0504,
+        "pnl_usd": -41.7913,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "Openhuman",
+        "wallet_type": "2",
+        "wallet_count": 3,
+        "sold_ratio_pct": 34.04,
+        "market_cap_usd": 422228.88811292755,
+        "size_usd": 823.66,
+        "pnl_pct": -0.0178,
+        "pnl_usd": -14.7721,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "Goblin",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 95.57,
+        "market_cap_usd": 8211256.061396921,
+        "size_usd": 822.33,
+        "pnl_pct": -0.0428,
+        "pnl_usd": -35.3147,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "Clude",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 87.58,
+        "market_cap_usd": 2063739.8489955093,
+        "size_usd": 819.15,
+        "pnl_pct": -0.0035,
+        "pnl_usd": -2.9519,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "WYNN",
+        "wallet_type": "2",
+        "wallet_count": 6,
+        "sold_ratio_pct": 88.56,
+        "market_cap_usd": 39710.37045656995,
+        "size_usd": 818.88,
+        "pnl_pct": 0.0084,
+        "pnl_usd": 6.768,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "TROLL",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 70.65,
+        "market_cap_usd": 105429194.61860454,
+        "size_usd": 819.49,
+        "pnl_pct": -0.0333,
+        "pnl_usd": -27.3695,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "Ebola",
+        "wallet_type": "2",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 119918.75416852963,
+        "size_usd": 817.03,
+        "pnl_pct": -0.0731,
+        "pnl_usd": -59.8386,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "EVENT",
+        "wallet_type": "1",
+        "wallet_count": 5,
+        "sold_ratio_pct": 81.97,
+        "market_cap_usd": 19328.96383127928,
+        "size_usd": 811.65,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -132.1953,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "MEMELON",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 92.3,
+        "market_cap_usd": 9058.02188252482,
+        "size_usd": 799.75,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -130.259,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Dust",
+        "wallet_type": "2",
+        "wallet_count": 3,
+        "sold_ratio_pct": 77.86,
+        "market_cap_usd": 239180.9342726968,
+        "size_usd": 788.02,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -128.351,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "GKC",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 91.03,
+        "market_cap_usd": 10618.009054975022,
+        "size_usd": 776.47,
+        "pnl_pct": -0.1627,
+        "pnl_usd": -126.471,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "DIAMOND",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 71.31,
+        "market_cap_usd": 223225.841862051,
+        "size_usd": 765.09,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -124.6185,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "KNORVA",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 48.69,
+        "market_cap_usd": 7231.100875605775,
+        "size_usd": 753.87,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -122.7931,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "RAWR",
+        "wallet_type": "2",
+        "wallet_count": 5,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 1099701.773114719,
+        "size_usd": 742.82,
+        "pnl_pct": -0.1627,
+        "pnl_usd": -120.9945,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "VIRUS",
+        "wallet_type": "2",
+        "wallet_count": 3,
+        "sold_ratio_pct": 71.21,
+        "market_cap_usd": 9062.1159272749,
+        "size_usd": 731.93,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 205.2075,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "VILLAGEBOY",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 77.88,
+        "market_cap_usd": 53639.932325072186,
+        "size_usd": 750.4,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -122.228,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "NUTZ",
+        "wallet_type": "2",
+        "wallet_count": 15,
+        "sold_ratio_pct": 99.33,
+        "market_cap_usd": 7100.178555785087,
+        "size_usd": 739.4,
+        "pnl_pct": -0.1627,
+        "pnl_usd": -120.4377,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Marvin",
+        "wallet_type": "1",
+        "wallet_count": 5,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 60457.29494606479,
+        "size_usd": 728.56,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -118.6736,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "GROX",
+        "wallet_type": "1",
+        "wallet_count": 6,
+        "sold_ratio_pct": 88.2,
+        "market_cap_usd": 8265.820902660198,
+        "size_usd": 717.88,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 201.2659,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "PAGO",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 78.34,
+        "market_cap_usd": 250942.71564305064,
+        "size_usd": 736.0,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -119.8834,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "DAD",
+        "wallet_type": "1",
+        "wallet_count": 12,
+        "sold_ratio_pct": 80.05,
+        "market_cap_usd": 4111.114977007106,
+        "size_usd": 725.21,
+        "pnl_pct": -0.1627,
+        "pnl_usd": -118.1274,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "FAHHHH",
+        "wallet_type": "1",
+        "wallet_count": 4,
+        "sold_ratio_pct": 87.5,
+        "market_cap_usd": 626679.9000727866,
+        "size_usd": 714.58,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -116.3971,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Phoenix",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 83.34,
+        "market_cap_usd": 8097.945170041168,
+        "size_usd": 704.1,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -114.6922,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "GPT",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 83.92,
+        "market_cap_usd": 4690.555147169022,
+        "size_usd": 693.78,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -113.0122,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "memestock",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 4307.583653475494,
+        "size_usd": 683.61,
+        "pnl_pct": -0.1627,
+        "pnl_usd": -111.3569,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "COPIUM",
+        "wallet_type": "1",
+        "wallet_count": 4,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 69841.49436565576,
+        "size_usd": 673.58,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -109.7258,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "SQUIRE",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 704208.5432133896,
+        "size_usd": 663.71,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 186.0702,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "Phoenix",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 96.83,
+        "market_cap_usd": 15795.066075158486,
+        "size_usd": 680.45,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 190.7676,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "MONET",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 61395.00201313838,
+        "size_usd": 697.62,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -113.6383,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "BEAR",
+        "wallet_type": "2",
+        "wallet_count": 3,
+        "sold_ratio_pct": 12.96,
+        "market_cap_usd": 14527.138816086719,
+        "size_usd": 687.4,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 192.7147,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "SOLANAAI",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 32183.347210456188,
+        "size_usd": 704.74,
+        "pnl_pct": -0.1627,
+        "pnl_usd": -114.7966,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "PRIMIS",
+        "wallet_type": "2",
+        "wallet_count": 3,
+        "sold_ratio_pct": 81.5,
+        "market_cap_usd": 936223.7039872156,
+        "size_usd": 694.41,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 194.6818,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "TWM",
+        "wallet_type": "1",
+        "wallet_count": 7,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 4697.882628005382,
+        "size_usd": 711.93,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -115.9667,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "HANTA",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 92.14,
+        "market_cap_usd": 2178611.4689506963,
+        "size_usd": 701.49,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -114.2681,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "CHUD",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 992471.788432514,
+        "size_usd": 691.21,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 193.7842,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "BMT",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 21.85,
+        "market_cap_usd": 74296.45889750823,
+        "size_usd": 708.65,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -115.4328,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "SPCX",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 1010328.7557742532,
+        "size_usd": 698.26,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -113.742,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "SPCX",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 31.41,
+        "market_cap_usd": 42777.56436501577,
+        "size_usd": 688.02,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -112.0759,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "SPCX",
+        "wallet_type": "1",
+        "wallet_count": 6,
+        "sold_ratio_pct": 85.41,
+        "market_cap_usd": 179568.01249705662,
+        "size_usd": 677.94,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 190.0614,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "SPCX",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 88.56,
+        "market_cap_usd": 12904.521058259243,
+        "size_usd": 695.04,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -113.2182,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "SPCX",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 98.45,
+        "market_cap_usd": 45519.05060817272,
+        "size_usd": 684.85,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -111.5599,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "EOS",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 638835.9294995838,
+        "size_usd": 674.81,
+        "pnl_pct": -0.1627,
+        "pnl_usd": -109.9258,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "ICED",
+        "wallet_type": "1",
+        "wallet_count": 4,
+        "sold_ratio_pct": 97.02,
+        "market_cap_usd": 17157.11037920982,
+        "size_usd": 664.92,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -108.3157,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "WORLDCUP",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 85.49,
+        "market_cap_usd": 2004549.912336938,
+        "size_usd": 655.17,
+        "pnl_pct": 0.0498,
+        "pnl_usd": 32.5534,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "ASTROID",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 97.08,
+        "market_cap_usd": 109993.96064902576,
+        "size_usd": 658.1,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 184.4973,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "Dragon",
+        "wallet_type": "2",
+        "wallet_count": 3,
+        "sold_ratio_pct": 55.74,
+        "market_cap_usd": 25437.39757541105,
+        "size_usd": 674.71,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -109.9084,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Ouroboros",
+        "wallet_type": "1",
+        "wallet_count": 8,
+        "sold_ratio_pct": 89.41,
+        "market_cap_usd": 51144.06925736733,
+        "size_usd": 664.81,
+        "pnl_pct": -0.1627,
+        "pnl_usd": -108.2985,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "COAR",
+        "wallet_type": "1",
+        "wallet_count": 5,
+        "sold_ratio_pct": 92.12,
+        "market_cap_usd": 93260.94944855658,
+        "size_usd": 655.07,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -106.7122,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "USP",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 86.78,
+        "market_cap_usd": 7904.802383747996,
+        "size_usd": 645.46,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 180.9524,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "PIZZA",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 70.83,
+        "market_cap_usd": 212139.68667082494,
+        "size_usd": 661.75,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -107.7996,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "CATCH",
+        "wallet_type": "1",
+        "wallet_count": 5,
+        "sold_ratio_pct": 92.46,
+        "market_cap_usd": 17191.05271531452,
+        "size_usd": 652.05,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -106.2206,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "STACFLIP",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 97.44,
+        "market_cap_usd": 11964.613543973455,
+        "size_usd": 642.49,
+        "pnl_pct": -0.1627,
+        "pnl_usd": -104.6647,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "tbh",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 243541.15632527834,
+        "size_usd": 633.07,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -103.1317,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "OuuuShi",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 32044.64302852694,
+        "size_usd": 623.79,
+        "pnl_pct": -0.1627,
+        "pnl_usd": -101.621,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "OUROBOROS",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 14143.276614263907,
+        "size_usd": 614.64,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 172.3063,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "gnosis",
+        "wallet_type": "2",
+        "wallet_count": 7,
+        "sold_ratio_pct": 83.16,
+        "market_cap_usd": 63026.226241338394,
+        "size_usd": 630.15,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -102.6564,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "BTC",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 138657.40449445054,
+        "size_usd": 620.91,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -101.1527,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "CLAUFFICE",
+        "wallet_type": "2",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 32280.71653194461,
+        "size_usd": 611.8,
+        "pnl_pct": -0.1627,
+        "pnl_usd": -99.6711,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "M32",
+        "wallet_type": "1",
+        "wallet_count": 5,
+        "sold_ratio_pct": 90.13,
+        "market_cap_usd": 284637.0460166508,
+        "size_usd": 602.83,
+        "pnl_pct": 0.0741,
+        "pnl_usd": 44.5503,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "CANNIBAL",
+        "wallet_type": "1",
+        "wallet_count": 6,
+        "sold_ratio_pct": 66.17,
+        "market_cap_usd": 7513.764236663517,
+        "size_usd": 606.84,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -98.8637,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "WANTED",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 86.99,
+        "market_cap_usd": 3720.4663531885567,
+        "size_usd": 597.95,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 167.6237,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "Jim",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 55.97,
+        "market_cap_usd": 80746.90860051634,
+        "size_usd": 613.03,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -99.8709,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "F.03",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 97.86,
+        "market_cap_usd": 24227.519346941783,
+        "size_usd": 604.04,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -98.408,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Wish",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 0.77,
+        "market_cap_usd": 432290.35155082535,
+        "size_usd": 595.19,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 166.8498,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "GAPLA",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 72.55,
+        "market_cap_usd": 68932.97242126307,
+        "size_usd": 610.2,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -99.4105,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "DIRECTOR",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 443150.3389482499,
+        "size_usd": 601.26,
+        "pnl_pct": -0.1627,
+        "pnl_usd": -97.9544,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "BABYWOJAK",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 98.67,
+        "market_cap_usd": 144776.914307999,
+        "size_usd": 592.44,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 166.0795,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "SLOPPER",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 116500.82552588286,
+        "size_usd": 607.39,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -98.9523,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Twerk",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 32270.739863599007,
+        "size_usd": 598.48,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -97.5029,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "TOEG",
+        "wallet_type": "2",
+        "wallet_count": 3,
+        "sold_ratio_pct": 67.27,
+        "market_cap_usd": 7440.008966265035,
+        "size_usd": 589.71,
+        "pnl_pct": -0.1627,
+        "pnl_usd": -96.0747,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "VIRL",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 1152500.7775088537,
+        "size_usd": 581.06,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 162.8872,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "simulator",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 74.3,
+        "market_cap_usd": 101494.58767449111,
+        "size_usd": 595.72,
+        "pnl_pct": -0.0797,
+        "pnl_usd": -47.5492,
+        "exit_event": "timeout_close"
+      },
+      {
+        "token": "BALLSACKDORKL",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 99.03,
+        "market_cap_usd": 113891.78667056009,
+        "size_usd": 591.44,
+        "pnl_pct": -0.1627,
+        "pnl_usd": -96.3569,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Tiles",
+        "wallet_type": "2",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 11846.35847822714,
+        "size_usd": 582.77,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -94.9455,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "hentai",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 77.91,
+        "market_cap_usd": 577412.7327703853,
+        "size_usd": 574.22,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -93.5548,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "Yae",
+        "wallet_type": "1",
+        "wallet_count": 6,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 1582379.9992552982,
+        "size_usd": 565.8,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 158.6077,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "RABBIT",
+        "wallet_type": "1",
+        "wallet_count": 4,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 157312.5928226573,
+        "size_usd": 580.08,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 162.6118,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "OFFCHAIN",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 87.47,
+        "market_cap_usd": 163858.4188651684,
+        "size_usd": 594.71,
+        "pnl_pct": 0.0216,
+        "pnl_usd": 12.7367,
+        "exit_event": "data_exhausted"
+      },
+      {
+        "token": "LUCY",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 100.0,
+        "market_cap_usd": 192973.32565679375,
+        "size_usd": 595.86,
+        "pnl_pct": -0.1627,
+        "pnl_usd": -97.076,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "RoyalPop",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 94.27,
+        "market_cap_usd": 1893292.6889159759,
+        "size_usd": 587.12,
+        "pnl_pct": 0.2805,
+        "pnl_usd": 164.5877,
+        "exit_event": "tp_fired"
+      },
+      {
+        "token": "HELPCJ",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 36.24,
+        "market_cap_usd": 31683.568674659975,
+        "size_usd": 601.93,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -98.0649,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "SCHIZO",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 83.61,
+        "market_cap_usd": 102753.6855033087,
+        "size_usd": 593.11,
+        "pnl_pct": 0.0078,
+        "pnl_usd": 4.5222,
+        "exit_event": "data_exhausted"
+      },
+      {
+        "token": "Mbappe",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 71.08,
+        "market_cap_usd": 228109.7985753937,
+        "size_usd": 593.52,
+        "pnl_pct": 0.1336,
+        "pnl_usd": 79.1954,
+        "exit_event": "data_exhausted"
+      },
+      {
+        "token": "LADA",
+        "wallet_type": "1",
+        "wallet_count": 3,
+        "sold_ratio_pct": 89.63,
+        "market_cap_usd": 267352.1579936996,
+        "size_usd": 600.64,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -97.8548,
+        "exit_event": "sl_fired"
+      },
+      {
+        "token": "BAGELS",
+        "wallet_type": "3",
+        "wallet_count": 3,
+        "sold_ratio_pct": 62.74,
+        "market_cap_usd": 174050.46224464587,
+        "size_usd": 591.84,
+        "pnl_pct": -0.1628,
+        "pnl_usd": -96.4214,
+        "exit_event": "sl_fired"
+      }
+    ]
+  },
+  {
+    "n": 1,
+    "win_rate": 1.0,
+    "total_pnl_usd": 429.65,
+    "final_bankroll": 10429.65,
+    "return_pct": 4.3,
+    "mean_pnl_pct": 47.75,
+    "median_pnl_pct": 47.75,
+    "std_pnl_pct": 0.0,
+    "sharpe_eq": 477500000.0,
+    "max_drawdown_pct": 0,
+    "best_pnl_pct": 47.75,
+    "worst_pnl_pct": 47.75,
+    "exits": {
+      "tp_fired": 1
+    },
+    "id": "S25",
+    "name": "\u22654 wallets + wide",
+    "config": {
+      "tp_pct": 0.5,
+      "sl_pct": -0.2,
+      "timeout_h": 8,
+      "size_pct": 0.09,
+      "sold_ratio_max": 30,
+      "min_wallet_count": 4,
+      "wallet_types": [
+        "1",
+        "2",
+        "3"
+      ],
+      "min_market_cap": 20000,
+      "max_market_cap": 10000000000,
+      "max_top10_pct": 50
+    },
+    "trades": [
+      {
+        "token": "Wish",
+        "wallet_type": "2",
+        "wallet_count": 4,
+        "sold_ratio_pct": 0.77,
+        "market_cap_usd": 432290.35155082535,
+        "size_usd": 900.0,
+        "pnl_pct": 0.4775,
+        "pnl_usd": 429.65,
+        "exit_event": "tp_fired"
+      }
+    ]
+  }
+]
