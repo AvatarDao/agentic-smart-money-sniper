@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.agentic-sniper.paper</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/bin/env</string>
+        <string>bash</string>
+        <string>-lc</string>
+        <string>export PATH="$HOME/.local/bin:/opt/homebrew/bin:/usr/local/bin:$PATH" &amp;&amp; /usr/bin/python3 "$HOME/.agentic-sniper/run_paper.py" --min-wallet 2 --pages 5 --max-trades 10 &gt;&gt; "$HOME/.agentic-sniper/paper.log" 2&gt;&amp;1</string>
+    </array>
+
+    <key>StartInterval</key>
+    <integer>1800</integer>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StandardOutPath</key>
+    <string>/tmp/agentic-sniper-paper.out</string>
+
+    <key>StandardErrorPath</key>
+    <string>/tmp/agentic-sniper-paper.err</string>
+</dict>
+</plist>

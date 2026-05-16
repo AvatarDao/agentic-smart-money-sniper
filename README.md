@@ -27,8 +27,32 @@ It listens for smart-money / KOL cluster-buy signals on Solana and X Layer, scre
 | `references/backtest.md` | Backtest spec and calibration loop. Runner lands in v0.3; v0.2 ships the schema and worked-example tables. |
 | `references/sample-journal.jsonl` | Canonical journal schema with one example trade life-cycle. |
 | `references/demo-run.md` | A captured live end-to-end run on 2026-05-16, with on-chain links for verifiability. |
+| `scripts/run_paper.py` | Autonomous corpus builder. Scans signals, applies the 10-rule filter (records every rule's status, not just the first failure), opens paper positions, writes everything to `~/.agentic-sniper/trades.jsonl`. Safe to run on a cron — has 6-hour dedup window on rejected tokens. |
+| `scripts/launchd/com.agentic-sniper.paper.plist` | macOS launchd job, fires every 30 minutes. See "Autonomous corpus growth" below. |
 | `CHANGELOG.md` | Version history. |
 | `README.md` | This file. |
+
+## Autonomous corpus growth
+
+To accumulate the journal corpus needed for v0.3 calibration, install the launchd job:
+
+```bash
+# Copy the script out of any sandboxed directory (macOS denies launchd access to ~/Desktop, ~/Documents, etc.)
+mkdir -p ~/.agentic-sniper
+cp scripts/run_paper.py ~/.agentic-sniper/run_paper.py
+
+# Install + start the launchd job (runs every 30 min, also fires at load)
+cp scripts/launchd/com.agentic-sniper.paper.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.agentic-sniper.paper.plist
+
+# Tail the log
+tail -f ~/.agentic-sniper/paper.log
+
+# Stop / uninstall
+launchctl unload ~/Library/LaunchAgents/com.agentic-sniper.paper.plist
+```
+
+Each run adds 1–10 events to `~/.agentic-sniper/trades.jsonl`. Over 24 hours you can expect 50–200 events depending on signal stream activity. The `recently_processed` dedup window (6 h) prevents the same rejected token being re-scanned to death; tokens whose signal returns *after* the window are re-examined and their evolving state is captured.
 
 ## How to install
 
