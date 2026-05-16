@@ -25,22 +25,24 @@ import time
 import uuid
 from datetime import datetime, timezone
 
-SKILL_VERSION = "0.2.0"
+SKILL_VERSION = "0.3.0"
 JOURNAL = os.path.expanduser("~/.agentic-sniper/trades.jsonl")
 SOL_NATIVE = "11111111111111111111111111111111"
 WSOL = "So11111111111111111111111111111111111111112"
 
-# v0.2 config defaults
+# v0.3 config defaults — see backtest-2026-05-16-report.md for rationale
 CONFIG = {
-    "max_sold_ratio_pct": 30,
+    "max_sold_ratio_pct": 15,            # v0.3: was 30; valley-of-death is 30-70
     "min_wallet_count": 3,
-    "min_liquidity_usd_api": 50000,  # API-level pre-filter
+    "wallet_types": ["1", "2"],          # v0.3: dropped "3" whales
+    "min_liquidity_usd_api": 50000,      # API-level pre-filter
     "filter": {
         "min_lp_burned_pct": 50,
         "max_top10_pct": 50,
         "max_bundle_pct": 10,
         "min_holders": 50,
         "min_liquidity_usd": 20000,
+        "min_market_cap_usd": 200000,    # v0.3 R11
         "min_age_minutes": 30,
         "max_price_impact_pct": 5,
     },
@@ -54,7 +56,7 @@ CONFIG = {
         "min_position_usd": 5,
     },
     "exits": {
-        "cluster_buy": {"tp_pct": 0.30, "sl_pct": -0.15, "timeout_h": 4},
+        "cluster_buy": {"tp_pct": 0.50, "sl_pct": -0.20, "timeout_h": 6},   # v0.3: widened
         "kol_solo":    {"tp_pct": 0.50, "sl_pct": -0.20, "timeout_h": 8},
     },
     "paper": {
@@ -153,11 +155,13 @@ def listener(chain="solana", min_wallet=3, min_liquidity=0, pages=3):
     candidates = []
     seen_tokens = set()
     cursor = None
+    # v0.3: only include wallet types from config (default ["1","2"] — dropping whales)
+    wt_arg = ",".join(CONFIG["wallet_types"])
     for _ in range(pages):
         args = [
             "signal", "list",
             "--chain", chain,
-            "--wallet-type", "1,2,3",
+            "--wallet-type", wt_arg,
             "--min-address-count", str(min_wallet),
             "--limit", "100",
         ]
@@ -230,6 +234,7 @@ def apply_filter(signal_row):
         ("R8", age_min >= f["min_age_minutes"]),
         ("R9", snapshot["holders"] >= f["min_holders"]),
         ("R10", snapshot["liquidity_usd"] >= f["min_liquidity_usd"]),
+        ("R11", snapshot["market_cap_usd"] >= f["min_market_cap_usd"]),  # v0.3
     ]
     # Record EVERY check status for richer corpus data (vs. v0.2 spec which only records the first failure)
     rules_status = {name: ok for name, ok in checks}

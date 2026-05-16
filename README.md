@@ -27,8 +27,11 @@ It listens for smart-money / KOL cluster-buy signals on Solana and X Layer, scre
 | `references/backtest.md` | Backtest spec and calibration loop. Runner lands in v0.3; v0.2 ships the schema and worked-example tables. |
 | `references/sample-journal.jsonl` | Canonical journal schema with one example trade life-cycle. |
 | `references/demo-run.md` | A captured live end-to-end run on 2026-05-16, with on-chain links for verifiability. |
-| `scripts/run_paper.py` | Autonomous corpus builder. Scans signals, applies the 10-rule filter (records every rule's status, not just the first failure), opens paper positions, writes everything to `~/.agentic-sniper/trades.jsonl`. Safe to run on a cron — has 6-hour dedup window on rejected tokens. |
-| `scripts/launchd/com.agentic-sniper.paper.plist` | macOS launchd job, fires every 30 minutes. See "Autonomous corpus growth" below. |
+| `scripts/run_paper.py` | Autonomous corpus builder. Scans signals, applies the 11-rule filter (records every rule's status, not just the first failure), opens paper positions, writes everything to `~/.agentic-sniper/trades.jsonl`. Safe to run on a cron — has 6-hour dedup window on rejected tokens. |
+| `scripts/run_backtest_daily.py` | Daily backtest runner — pulls 24h of signals, fetches klines for each candidate, runs the 14-strategy matrix (v0.2 baseline / v0.3 default / per-change ablations / counterfactuals), archives results to `~/.agentic-sniper/backtest/YYYY-MM-DD/`. |
+| `scripts/pull_signals.py`, `fetch_klines.py`, `backtest.py`, `analyze_backtest.py` | One-shot backtest tools used to produce the v0.2.2 report. The daily runner subsumes them but they remain as reference. |
+| `scripts/launchd/com.agentic-sniper.paper.plist` | macOS launchd: paper-trade pipeline every 30 minutes. |
+| `scripts/launchd/com.agentic-sniper.backtest.plist` | macOS launchd: full backtest daily at 04:00 local. |
 | `CHANGELOG.md` | Version history. |
 | `README.md` | This file. |
 
@@ -53,6 +56,34 @@ launchctl unload ~/Library/LaunchAgents/com.agentic-sniper.paper.plist
 ```
 
 Each run adds 1–10 events to `~/.agentic-sniper/trades.jsonl`. Over 24 hours you can expect 50–200 events depending on signal stream activity. The `recently_processed` dedup window (6 h) prevents the same rejected token being re-scanned to death; tokens whose signal returns *after* the window are re-examined and their evolving state is captured.
+
+## Daily backtest
+
+Same install pattern. The job runs daily at 04:00 local time, pulls 24h of signals, fetches klines for every candidate token, runs the 14-strategy sweep, and writes the archive to `~/.agentic-sniper/backtest/YYYY-MM-DD/`:
+
+```bash
+cp scripts/run_backtest_daily.py ~/.agentic-sniper/
+cp scripts/launchd/com.agentic-sniper.backtest.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/com.agentic-sniper.backtest.plist
+
+# Run once on demand
+python3 ~/.agentic-sniper/run_backtest_daily.py
+
+# Browse the archive
+ls -lt ~/.agentic-sniper/backtest/
+```
+
+Each daily archive contains:
+
+```
+~/.agentic-sniper/backtest/YYYY-MM-DD/
+├── signals.json          # 24h of dedup'd signals
+├── klines/<token>.json   # 5m candles per token, cached
+├── results.json          # full 14-strategy result with per-trade detail
+└── report.md             # rendered table, sorted by final bankroll
+```
+
+Compare day-to-day to detect parameter drift, market regime changes, or sample-size milestones.
 
 ## How to install
 

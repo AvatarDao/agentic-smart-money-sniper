@@ -1,5 +1,53 @@
 # Changelog
 
+## 0.3.0 — 2026-05-16
+
+First evidence-driven iteration. The v0.2.2 backtest produced per-feature lift on a 97-trade universal sample; v0.3 applies the six changes that the lift data justifies and ships an automated daily backtest so future iterations are similarly grounded.
+
+### New rules
+
+- **R11 — Market cap floor ≥ $200,000.** Single biggest lift in the v0.2.2 corpus. Sub-$50K MC delivered −7.08% mean per trade across 44 trades; the $1M–$10M bucket alone returned +3.04% across 10 trades; the $200K+ blend is roughly break-even. R11 cuts out 67 of 97 universal trades while preserving every positive-EV trade.
+
+### Listener changes
+
+- **Wallet types defaulted to `[1, 2]` (smart money + KOL).** Whales (`3`) hit 10% win rate / −10.5% mean across 10 trades in the v0.2.2 corpus — systematically wrong on this timeframe. Re-enable explicitly if needed via `config.listener.wallet_types`.
+- **`max_sold_ratio_pct` tightened from 30 → 15.** The "valley of death" is 30–70% sold-ratio (0% win rate on n=9 in v0.2.2). The buy-heavy bucket <30% has too few samples to draw confident conclusions, but every trade in it was a winner. Tightening to <15% is the strictest cut the data still supports; revisit after 30+ closed positions.
+
+### Exit policy changes
+
+- **Default cluster-buy TP widened from +30% to +50%.** S03 in the v0.2.2 sweep caught a +47.75% trade on the same buy-heavy signal that v0.2's +30% gave up at +28%. The break-even win rate for +30/−15 was 33.3%; observed was 27%. Widening to +50/−20 doesn't fix the win-rate problem but extracts more value per winner.
+- **Default cluster-buy SL widened from −15% to −20%.** 60% of universal-sample trades stopped out at −15%, and a non-trivial subset bounced back. The looser SL cuts the SL-trigger rate without enlarging the worst-case loss meaningfully (5m candle noise often produces a −15% wick that doesn't reflect the price minutes later).
+- **Default cluster-buy timeout extended from 4h → 6h.** Gives wider TP more time to fire.
+
+### Tooling
+
+- `scripts/run_backtest_daily.py` — the v0.2.2 backtest, productionised. Self-contained: pulls signals, fetches klines, runs a 14-strategy matrix that includes v0.2 baseline + v0.3 default + per-change ablations + counterfactuals, archives everything to `~/.agentic-sniper/backtest/YYYY-MM-DD/`.
+- `scripts/launchd/com.agentic-sniper.backtest.plist` — daily 04:00 launchd schedule.
+- `scripts/run_paper.py` updated: applies the v0.3 config inline (R11, wallet_types, soldRatio<15, TP/SL/timeout defaults), tags every emitted event with `skill_version: 0.3.0`.
+
+### What this changes operationally
+
+The v0.3 filter is much stricter — expect 30–60% fewer trades to clear it on the same corpus. The trade quality should compensate. Watch the daily backtest archive over the next week:
+- If the v0.3-vs-v0.2 PnL delta is consistently positive across days, ship the config.
+- If v0.3 is positive on calm markets and negative on volatile ones (or vice versa), split the config by market-regime detector — out of scope for v0.3 but a clear v0.4 direction.
+- If R11 throws away too many candidates and the resulting sample is single-digit, relax to $100K and re-run.
+
+### Open from v0.2.2 backtest (deferred)
+
+- **Bear-market corpus.** 95% of 24h signals are sell-heavy. Re-run weekly; expect different parameter optima in a bull leg.
+- **No R1/R2/R3/R7 in backtest.** Signal-row doesn't carry `lpBurnedPercent`, `isMintable`, `isHasFrozenAuth`, or `isHoneypot`. The live skill enforces all four; the backtest is therefore optimistic on trade count.
+- **5-minute candle granularity.** Within-bar TP/SL ordering assumes worst-case (SL before TP). Real fills with 1-second data could shift 10–20% of exits from SL to TP.
+
+### Files
+
+| Path | Purpose |
+|---|---|
+| `references/backtest-v0.3-comparison.md` | Today's archive of the v0.3 backtest run, ablations included. |
+| `references/backtest-2026-05-16-report.md` | The v0.2.2 backtest that drove the v0.3 changes. |
+| `~/.agentic-sniper/backtest/YYYY-MM-DD/` | Daily archive: signals, klines, results, report. |
+
+---
+
 ## 0.2.0 — 2026-05-16
 
 Iteration after the first live trade exposed two problems: TP/SL slippage was way too loose for the position size we actually run at, and we had no path to recalibrate other than guessing. v0.2 swaps the operational stance from "trade live by default, dry-run as opt-out" to "paper by default, live as opt-in" — and adds the data plumbing that makes recalibration mechanical.

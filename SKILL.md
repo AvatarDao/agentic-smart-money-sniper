@@ -4,7 +4,7 @@ description: "Smart-money copy-trading skill for OKX Agentic Wallet on Solana an
 license: MIT
 metadata:
   author: AvatarDao
-  version: "0.2.0"
+  version: "0.3.0"
   homepage: "https://github.com/AvatarDao/agentic-smart-money-sniper"
 ---
 
@@ -42,33 +42,36 @@ Every run executes these in order. A failure at any module short-circuits the tr
 
 | Module | Implementation | Output |
 |---|---|---|
-| Listener | `onchainos signal list --wallet-type 1,2,3 --chain solana --min-address-count 3 --min-liquidity-usd 50000 --limit 100` | ranked token candidates with smart-money / KOL / whale buy intensity |
-| Filter (soldRatio gate) | reject any signal with `soldRatioPercent > 30` | buy-heavy signals only |
-| Filter (10 rules) | `onchainos token report` for each surviving candidate | `(passed: bool, failed_rule: str?)` |
+| Listener | `onchainos signal list --wallet-type 1,2 --chain solana --min-address-count 3 --min-liquidity-usd 50000 --limit 100` | ranked token candidates with smart-money / KOL buy intensity (whale signals dropped in v0.3 — see below) |
+| Filter (soldRatio gate) | reject any signal with `soldRatioPercent > 15` | strictly buy-heavy signals (tightened from 30% in v0.3) |
+| Filter (11 rules) | `onchainos token report` for each surviving candidate | `(passed: bool, failed_rule: str?)` |
 | Sizer | Kelly-bounded fractional formula (see §Position Sizing) | size in USD, clamped to caps |
 | Executor | mode-dependent — see §Execution Modes | entry record (virtual or real txHash) |
 | Monitor | mode-dependent — see §Execution Modes | exit record + realized PnL |
 
 Each step writes one JSONL event (see §Journal). The journal is the source of truth for performance review and backtest.
 
-## Risk Filter (the 10 rules)
+## Risk Filter (the 11 rules)
 
-A token passes only if **all** 10 rules hold. Reject on first failure; record which rule fired. (The soldRatio gate is a separate, earlier check — it filters signal direction, not token safety.)
+A token passes only if **all** 11 rules hold. Reject on first failure; record which rule fired. (The soldRatio gate is a separate, earlier check — it filters signal direction, not token safety.)
 
-| # | Rule | Threshold | Source |
-|---|---|---|---|
-| R1 | Mint authority revoked | `isMintable: false` | `token report.security` |
-| R2 | Freeze authority revoked | `isHasFrozenAuth: false` | `token report.security` |
-| R3 | LP locked or burned | LP burned ≥ 50% OR locked ≥ 30 days | `token report.advancedInfo.lpBurnedPercent` |
-| R4 | Top-1 holder share (excl. LP) | < 20% of supply | `token report.advancedInfo` (use top10 / 10 as proxy if top1 absent) |
-| R5 | Top-10 holder share (excl. LP) | < 50% of supply | `token report.advancedInfo.top10HoldPercent` |
-| R6 | No insider bundling | `bundleHoldingPercent < 10` | `token report.advancedInfo.bundleHoldingPercent` |
-| R7 | Sellable, low price impact | `isHoneypot: false`, quote price impact < 5% | `swap quote` |
-| R8 | Token age | ≥ 30 minutes from `createTime` | `token report.advancedInfo.createTime` |
-| R9 | Holder count | ≥ 50 unique holders | `token report.priceInfo.holders` |
-| R10 | Liquidity floor | pool ≥ $20,000 USD equivalent | `token report.priceInfo.liquidity` |
+| # | Rule | Threshold | Source | Added |
+|---|---|---|---|---|
+| R1 | Mint authority revoked | `isMintable: false` | `token report.security` | v0.1 |
+| R2 | Freeze authority revoked | `isHasFrozenAuth: false` | `token report.security` | v0.1 |
+| R3 | LP locked or burned | LP burned ≥ 50% OR locked ≥ 30 days | `token report.advancedInfo.lpBurnedPercent` | v0.1 |
+| R4 | Top-1 holder share (excl. LP) | < 20% of supply | `token report.advancedInfo` (use top10 / 10 as proxy if top1 absent) | v0.1 |
+| R5 | Top-10 holder share (excl. LP) | < 50% of supply | `token report.advancedInfo.top10HoldPercent` | v0.1 |
+| R6 | No insider bundling | `bundleHoldingPercent < 10` | `token report.advancedInfo.bundleHoldingPercent` | v0.1 |
+| R7 | Sellable, low price impact | `isHoneypot: false`, quote price impact < 5% | `swap quote` | v0.2 (tightened) |
+| R8 | Token age | ≥ 30 minutes from `createTime` | `token report.advancedInfo.createTime` | v0.1 |
+| R9 | Holder count | ≥ 50 unique holders | `token report.priceInfo.holders` | v0.1 |
+| R10 | Liquidity floor | pool ≥ $20,000 USD equivalent | `token report.priceInfo.liquidity` | v0.1 |
+| **R11** | **Market cap floor** | **≥ $200,000 USD** | **`token report.priceInfo.marketCap` or signal row `marketCapUsd`** | **v0.3** |
 
 When the upstream skill cannot return a field, **default to fail** (`failed_rule = "R<N>_unknown"`). Do not approximate — judges will dock for silent passes on missing data.
+
+**R11 rationale**: the v0.2.2 backtest (`references/backtest-2026-05-16-report.md`) showed a clear monotonic lift by market cap on a 97-trade sample. Sub-$50K MC delivered −7.08% mean per trade; $200K+ buckets blended to roughly break-even; the $1M–$10M bucket alone returned +3.04% mean (40% win rate, n=10). Adding R11 at $200K cuts out the worst 67 of 97 universal-strategy trades while preserving every trade in the meaningfully-positive bucket.
 
 ## Position Sizing
 
@@ -98,10 +101,13 @@ These yield ~9% of bankroll per trade, capped at 15%. Override via `~/.agentic-s
 
 | Signal type | TP | SL | Time-out close | Slippage (entry) | Slippage (exit) |
 |---|---|---|---|---|---|
-| Smart-money cluster buy (≥ 3 wallets) | +30% | −15% | 4 h | 2% | **3%** |
-| Single high-conviction KOL | +50% | −20% | 8 h | 2% | **3%** |
+| Smart-money cluster buy (≥ 3 wallets) | **+50%** | **−20%** | **6 h** | 2% | 3% |
+| KOL cluster buy (≥ 3 wallets) | **+50%** | **−20%** | **6 h** | 2% | 3% |
+| Single high-conviction KOL | +50% | −20% | 8 h | 2% | 3% |
 
-v0.2 tightens exit slippage from the v0.1 default of 10% to 3%, based on the 2026-05-16 demo run where actual market impact at $15 size was under 1% on $118K liquidity — 10% was wasteful defensive padding. If a paper-trade fill simulation shows fills outside this budget, the corpus will flag it and the config bumps for the affected signal class only.
+**v0.3 change**: widened the cluster-buy TP/SL from +30/-15 to +50/-20 and extended timeout from 4h to 6h. The v0.2.2 backtest showed that on the same set of buy-heavy signals, S03 (+50/-25) caught a +47.75% trade that S01 (+30/-15) gave up at +28%, with identical downside profile. The SL is loosened from −15% to −20% to reduce premature stop-outs caused by within-bar noise on 5m candles — 60% of trades in the universal sample stopped out on −15%, but several of those rebounded immediately. Re-evaluate after 30+ closed positions accumulate.
+
+v0.2 tightened exit slippage from the v0.1 default of 10% to 3%, based on the 2026-05-16 demo run where actual market impact at $15 size was under 1% on $118K liquidity. If a paper-trade fill simulation shows fills outside this budget, the corpus will flag it and the config bumps for the affected signal class only.
 
 **Live mode**: at entry, fire two limit orders **immediately** via `onchainos strategy create-limit` with `--slippage 3`. Monitor module cancels the surviving limit order when the other fills (`onchainos strategy cancel`). Time-out triggers a market close via `onchainos swap execute --slippage 5` (slightly looser because the timeout fill is non-discretionary).
 
@@ -232,16 +238,18 @@ listener:
   window_minutes: 30
   min_wallet_count: 3
   min_liquidity_usd: 50000               # API-level filter, before our R10
-  max_sold_ratio_pct: 30                 # soldRatio gate (signal direction filter)
-  wallet_types: [1, 2, 3]                # 1=smart money, 2=KOL, 3=whale
+  max_sold_ratio_pct: 15                 # v0.3: tightened from 30 to 15 based on backtest lift
+  wallet_types: [1, 2]                   # v0.3: dropped whales (3) — 10% win rate / -10.5% mean
 filter:
-  min_holders: 50
+  min_holders: 50                        # R9
   min_liquidity_usd: 20000               # R10
+  min_market_cap_usd: 200000             # R11 (v0.3, new)
   max_top1_pct: 0.20                     # R4
   max_top10_pct: 0.50                    # R5
   max_bundle_holding_pct: 0.10           # R6
   min_token_age_minutes: 30              # R8
   min_lp_burned_pct: 50                  # R3
+  max_price_impact_pct: 5                # R7
 sizing:
   win_prob: 0.35
   avg_win_pct: 1.5
@@ -251,14 +259,17 @@ sizing:
   max_position_pct: 0.15
   min_position_usd: 5
 exits:
-  cluster_buy: {tp_pct: 0.30, sl_pct: -0.15, timeout_hours: 4, slippage_entry: 2, slippage_exit: 3}
+  cluster_buy: {tp_pct: 0.50, sl_pct: -0.20, timeout_hours: 6, slippage_entry: 2, slippage_exit: 3}
   kol_solo:    {tp_pct: 0.50, sl_pct: -0.20, timeout_hours: 8, slippage_entry: 2, slippage_exit: 3}
 paper:
   poll_interval_minutes: 5
   default_simulated_slippage_pct: 1.5    # used until live corpus replaces it
+backtest:
+  schedule: "daily 04:00 local"          # v0.3: launchd job
+  archive_dir: "~/.agentic-sniper/backtest/"
 ```
 
-Override any value in this file; missing keys fall back to v0.2 defaults shown above. Config edits are journaled as a `config_changed` event so backtests can segment by config epoch.
+Override any value in this file; missing keys fall back to v0.3 defaults shown above. Config edits are journaled as a `config_changed` event so backtests can segment by config epoch.
 
 ## Disclaimer
 
