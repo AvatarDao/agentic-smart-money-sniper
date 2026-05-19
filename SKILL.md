@@ -4,7 +4,7 @@ description: "Smart-money copy-trading skill for OKX Agentic Wallet on Solana an
 license: MIT
 metadata:
   author: AvatarDao
-  version: "0.3.0"
+  version: "0.3.1"
   homepage: "https://github.com/AvatarDao/agentic-smart-money-sniper"
 ---
 
@@ -109,7 +109,9 @@ These yield ~9% of bankroll per trade, capped at 15%. Override via `~/.agentic-s
 
 v0.2 tightened exit slippage from the v0.1 default of 10% to 3%, based on the 2026-05-16 demo run where actual market impact at $15 size was under 1% on $118K liquidity. If a paper-trade fill simulation shows fills outside this budget, the corpus will flag it and the config bumps for the affected signal class only.
 
-**Live mode**: at entry, fire two limit orders **immediately** via `onchainos strategy create-limit` with `--slippage 3`. Monitor module cancels the surviving limit order when the other fills (`onchainos strategy cancel`). Time-out triggers a market close via `onchainos swap execute --slippage 5` (slightly looser because the timeout fill is non-discretionary).
+**Live mode**: at entry, fire two limit orders **immediately** via `onchainos strategy create-limit` with `--slippage 3` and **`--expires-in 604800`** (7 days — the CLI default, but pass it explicitly so the order TTL outlives any plausible monitor downtime). Monitor module cancels the surviving limit order when the other fills (`onchainos strategy cancel`). Time-out triggers a market close via `onchainos swap execute --slippage 5` (slightly looser because the timeout fill is non-discretionary).
+
+**`--expires-in` is the order TTL, separate from the skill's own `timeout_hours`.** The skill's timeout is when the monitor module decides to manually close at market; the CLI `--expires-in` is when the limit order self-destructs on the backend. The two must agree in shape: `--expires-in` should be **strictly greater than** `timeout_hours`, otherwise (as on the 2026-05-16 Wish trade) a 4h `--expires-in` against a 6h `timeout_hours` produces a 2-hour window where the position has no SL coverage at all. Use 7d as the safe default; the skill's own monitor handles earlier-than-TTL closes.
 
 **Paper mode**: virtual TP/SL triggers are checked every 5 minutes against `onchainos token price-info`. When triggered, the journal records a virtual fill at `trigger_price * (1 ± simulated_slippage)`, where `simulated_slippage` is sampled from the empirical distribution of recent live fills on the same liquidity bucket (default 1.5% until enough data accumulates).
 

@@ -241,7 +241,13 @@ def run_strategy(S, sigs, klines):
 
 def metrics(trades, final):
     if not trades:
-        return {"n": 0, "final_bankroll": BANKROLL_USD, "return_pct": 0.0}
+        # v0.3.1 fix: include all keys the summary loop reads, prevents KeyError
+        return {
+            "n": 0, "final_bankroll": BANKROLL_USD, "return_pct": 0.0,
+            "win_rate": 0.0, "total_pnl_usd": 0.0,
+            "mean_pnl_pct": 0.0, "std_pnl_pct": 0.0, "sharpe_eq": 0.0,
+            "best_pnl_pct": 0.0, "worst_pnl_pct": 0.0, "exits": {},
+        }
     pnls_pct = [t["pnl_pct"] for t in trades]
     wins = [p for p in pnls_pct if p > 0]
     mean = sum(pnls_pct)/len(pnls_pct)

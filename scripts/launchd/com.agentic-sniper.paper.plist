@@ -19,6 +19,23 @@
     <key>RunAtLoad</key>
     <true/>
 
+    <!-- v0.3.1: launchd does not load .zshrc; explicitly forward proxy + auth env -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>HTTP_PROXY</key>
+        <string>http://127.0.0.1:1087</string>
+        <key>HTTPS_PROXY</key>
+        <string>http://127.0.0.1:1087</string>
+        <key>http_proxy</key>
+        <string>http://127.0.0.1:1087</string>
+        <key>https_proxy</key>
+        <string>http://127.0.0.1:1087</string>
+        <key>NO_PROXY</key>
+        <string>localhost,127.0.0.1,::1,.local</string>
+        <key>HOME</key>
+        <string>/Users/l</string>
+    </dict>
+
     <key>StandardOutPath</key>
     <string>/tmp/agentic-sniper-paper.out</string>
 
