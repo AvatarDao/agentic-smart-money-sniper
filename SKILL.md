@@ -4,7 +4,7 @@ description: "Smart-money copy-trading skill for OKX Agentic Wallet on Solana an
 license: MIT
 metadata:
   author: AvatarDao
-  version: "0.4.0"
+  version: "0.4.1"
   homepage: "https://github.com/AvatarDao/agentic-smart-money-sniper"
 ---
 

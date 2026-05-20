@@ -23,6 +23,7 @@ It listens for smart-money / KOL cluster-buy signals on Solana and X Layer, scre
 |---|---|
 | `SKILL.md` | The skill itself — frontmatter + policy. This is what an Agentic Wallet agent loads. |
 | `references/strategy-notes.md` | Research distillation: open-source bot architectures, rug-check rule sources, sizing rationale. |
+| `references/smart-money-distillation.md` | Reverse-engineering of the top-50 Solana SM traders (7d ROI). Surfaces the central calibration tension — R11 ($200K MC floor) and the elite SM playbook (sub-$15K MC snipes) sit on opposite sides of the same threshold; the skill stays on the safe side by design. Proposes R13 (wallet-quality re-ranking) for v0.5. |
 | `references/paper-trade.md` | Paper-mode semantics: virtual fill arithmetic, poll cadence, paper-to-live transition. |
 | `references/backtest.md` | Backtest spec and calibration loop. Runner lands in v0.3; v0.2 ships the schema and worked-example tables. |
 | `references/sample-journal.jsonl` | Canonical journal schema with one example trade life-cycle. |

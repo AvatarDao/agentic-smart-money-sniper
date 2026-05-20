@@ -1,5 +1,28 @@
 # Changelog
 
+## 0.4.1 — 2026-05-21
+
+Documentation-only release. References a real distillation of the top-50 Solana smart-money traders by 7-day ROI, fetched live via `onchainos leaderboard list` and `onchainos tracker activities`. New file: `references/smart-money-distillation.md`.
+
+### The finding worth keeping
+
+The skill's R11 (MC ≥ $200K) and the elite SM cohort's profitable playbook (first-block snipes at MC ≈ $4–15K) sit on opposite sides of the same threshold. The top SM trader by absolute PnL (+$32K / 226 txs / 7d) buys exclusively in the sub-$15K MC bucket that R11 cuts. The skill stays on the safe side of this threshold by design — retail running v0.4 lacks the infrastructure (sub-second mempool monitoring, bundler-aware execution, capital that can absorb dozens of small losses) to safely play the elite SM game. R11 is structurally correct for our user; do not relax it.
+
+### What is NOT shipped here
+
+- No code changes in this release.
+- R13 (wallet-quality re-ranking using leaderboard data) is *proposed* in the doc but deferred to v0.5 to keep the contest cut-off clean. Implementation surface is ~30 LOC plus a weekly leaderboard-refresh launchd job.
+- No retroactive change to existing journal events; the leaderboard cache, when added, will only affect signals received after v0.5 ships.
+
+### Operational state at version cut (contest deadline 2026-05-21 18:00 UTC+8)
+
+- Wallet ≈ $167 (post-JUP exit at +$7.24 realized, JTO position open 302.94 @ $0.5364).
+- JTO TP +7% / SL −4% active, 7d TTL.
+- Net realized PnL ≈ −$0.59 if no further fills (covered Wish −$6.36 + volume-farming drag −$1.47 + JUP +$7.24).
+- PnL leaderboard rank 100 threshold: $10.24. JTO TP fire → +$10.66 net, just over.
+
+---
+
 ## 0.4.0 — 2026-05-20
 
 R12 added — strictly zero `devRugPullTokenCount`. Live-fire validated on the same day by a listener run that surfaced exactly one R1-through-R11-passing candidate (`HeavyPulp`), whose token report showed 105 prior rug-pulls and the `devHoldingStatusSellAll` tag. v0.3 would have approved that trade; v0.4 rejects it. Full transcript and rationale in `references/r12-live-rejection.md`.
