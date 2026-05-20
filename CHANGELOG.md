@@ -1,5 +1,36 @@
 # Changelog
 
+## 0.4.0 — 2026-05-20
+
+R12 added — strictly zero `devRugPullTokenCount`. Live-fire validated on the same day by a listener run that surfaced exactly one R1-through-R11-passing candidate (`HeavyPulp`), whose token report showed 105 prior rug-pulls and the `devHoldingStatusSellAll` tag. v0.3 would have approved that trade; v0.4 rejects it. Full transcript and rationale in `references/r12-live-rejection.md`.
+
+Also adds passive market-regime tracking — every listener run now logs `regime.buy_heavy_pct` to the journal so future backtests can segment by signal-mix regime. No automatic action keyed off it yet; the v0.5 calibration loop will use it once the corpus is large enough.
+
+### New rule
+
+- **R12 — `devRugPullTokenCount == 0`.** Hard zero. The single biggest false-negative risk in the previous filter set was a clean-looking token deployed by an industrial token mill. Listener proved this on 2026-05-20: 12 rules audited, 11 ✅, R12 caught a serial-rug deployer with `devRugPullTokenCount: 105`, `devLaunchedTokenCount: 54`, `devCreateTokenCount: 11,895`, and `tokenTags: [devHoldingStatusSellAll, ...]` — i.e., the dev had already cashed out the launch tranche of THIS token. Threshold is hard zero (not ≤ 1, not ≤ 5) because real-world `devRugPullTokenCount` is bimodal (single-launch devs at 0, career deployers at 5+) and the asymmetry of error costs favors strict rejection.
+
+### Changed
+
+- `snapshot["dev_rug_count"]` now uses a sentinel 9999 when the field is missing from `token report.advancedInfo`, so R12 defaults to FAIL on incomplete data (per the global "default to fail" rule). Previously this defaulted to 0, which would silently pass.
+- `run_paper.py` bumped to skill_version 0.4.0; every emitted event tagged accordingly.
+
+### New observation: passive regime tracker
+
+- Listener now records `regime.buy_heavy_pct` (% of signals with soldRatio < 30) on each run. As of 2026-05-20 the value is ≈ 3% — confirmed distribution-mode market for the third consecutive day.
+
+### Tooling not changed
+
+- `run_backtest_daily.py` does **not** enforce R12 in the strategy matrix, because the signal-list API row doesn't carry `devRugPullTokenCount`. Backtest is therefore optimistic on tradeable signal count vs. the live skill. Re-fetching `token report` per signal in the backtest would add 5-10s per signal × ~100 signals = ~10 minutes per daily run — acceptable cost; deferred to v0.5.
+
+### Operational status at version cut
+
+- **Wallet**: 1.88 SOL ≈ $162 (Wish closed at −$6.36 realized; volume farming added 7 round-trips for $1043 qualifying volume, 1.3% drag).
+- **Contest standing**: participation prize eligible (vol ≥ $100, balance ≥ $100); PnL leaderboard not on-ranked due to −$6.36 realized.
+- **Listener (2026-05-20)**: 100 signals returned, 1 candidate cleared R1–R11, R12 rejected it. No live trade fired.
+
+---
+
 ## 0.3.0 — 2026-05-16
 
 First evidence-driven iteration. The v0.2.2 backtest produced per-feature lift on a 97-trade universal sample; v0.3 applies the six changes that the lift data justifies and ships an automated daily backtest so future iterations are similarly grounded.

@@ -25,7 +25,7 @@ import time
 import uuid
 from datetime import datetime, timezone
 
-SKILL_VERSION = "0.3.0"
+SKILL_VERSION = "0.4.0"
 JOURNAL = os.path.expanduser("~/.agentic-sniper/trades.jsonl")
 SOL_NATIVE = "11111111111111111111111111111111"
 WSOL = "So11111111111111111111111111111111111111112"
@@ -42,7 +42,8 @@ CONFIG = {
         "max_bundle_pct": 10,
         "min_holders": 50,
         "min_liquidity_usd": 20000,
-        "min_market_cap_usd": 200000,    # v0.3 R11
+        "min_market_cap_usd": 200000,    # R11
+        "max_dev_rug_count": 0,          # v0.4 R12 — strict zero, see references/r12-live-rejection.md
         "min_age_minutes": 30,
         "max_price_impact_pct": 5,
     },
@@ -208,7 +209,8 @@ def apply_filter(signal_row):
         "lp_burned_pct": float(adv.get("lpBurnedPercent", 0) or 0),
         "top10_pct": float(adv.get("top10HoldPercent", 100) or 100),
         "bundle_pct": float(adv.get("bundleHoldingPercent", 100) or 100),
-        "dev_rug_count": int(adv.get("devRugPullTokenCount", 0) or 0),
+        # v0.4: sentinel 9999 if missing — R12 check then defaults to fail (per "default to fail" rule)
+        "dev_rug_count": int(adv["devRugPullTokenCount"]) if adv.get("devRugPullTokenCount") not in (None, "") else 9999,
         "dev_holding_pct": float(adv.get("devHoldingPercent", 0) or 0),
         "create_time_ms": int(adv.get("createTime", 0) or 0),
         "holders": int(price.get("holders", 0) or 0),
@@ -235,6 +237,7 @@ def apply_filter(signal_row):
         ("R9", snapshot["holders"] >= f["min_holders"]),
         ("R10", snapshot["liquidity_usd"] >= f["min_liquidity_usd"]),
         ("R11", snapshot["market_cap_usd"] >= f["min_market_cap_usd"]),  # v0.3
+        ("R12", snapshot.get("dev_rug_count", 9999) <= f["max_dev_rug_count"]),  # v0.4
     ]
     # Record EVERY check status for richer corpus data (vs. v0.2 spec which only records the first failure)
     rules_status = {name: ok for name, ok in checks}

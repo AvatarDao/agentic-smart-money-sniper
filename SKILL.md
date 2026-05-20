@@ -4,7 +4,7 @@ description: "Smart-money copy-trading skill for OKX Agentic Wallet on Solana an
 license: MIT
 metadata:
   author: AvatarDao
-  version: "0.3.1"
+  version: "0.4.0"
   homepage: "https://github.com/AvatarDao/agentic-smart-money-sniper"
 ---
 
@@ -51,9 +51,9 @@ Every run executes these in order. A failure at any module short-circuits the tr
 
 Each step writes one JSONL event (see §Journal). The journal is the source of truth for performance review and backtest.
 
-## Risk Filter (the 11 rules)
+## Risk Filter (the 12 rules)
 
-A token passes only if **all** 11 rules hold. Reject on first failure; record which rule fired. (The soldRatio gate is a separate, earlier check — it filters signal direction, not token safety.)
+A token passes only if **all** 12 rules hold. Reject on first failure; record which rule fired. (The soldRatio gate is a separate, earlier check — it filters signal direction, not token safety.)
 
 | # | Rule | Threshold | Source | Added |
 |---|---|---|---|---|
@@ -67,11 +67,14 @@ A token passes only if **all** 11 rules hold. Reject on first failure; record wh
 | R8 | Token age | ≥ 30 minutes from `createTime` | `token report.advancedInfo.createTime` | v0.1 |
 | R9 | Holder count | ≥ 50 unique holders | `token report.priceInfo.holders` | v0.1 |
 | R10 | Liquidity floor | pool ≥ $20,000 USD equivalent | `token report.priceInfo.liquidity` | v0.1 |
-| **R11** | **Market cap floor** | **≥ $200,000 USD** | **`token report.priceInfo.marketCap` or signal row `marketCapUsd`** | **v0.3** |
+| R11 | Market cap floor | ≥ $200,000 USD | `token report.priceInfo.marketCap` or signal row `marketCapUsd` | v0.3 |
+| **R12** | **Dev rug history** | **`devRugPullTokenCount == 0`** | **`token report.advancedInfo.devRugPullTokenCount`** | **v0.4** |
 
 When the upstream skill cannot return a field, **default to fail** (`failed_rule = "R<N>_unknown"`). Do not approximate — judges will dock for silent passes on missing data.
 
 **R11 rationale**: the v0.2.2 backtest (`references/backtest-2026-05-16-report.md`) showed a clear monotonic lift by market cap on a 97-trade sample. Sub-$50K MC delivered −7.08% mean per trade; $200K+ buckets blended to roughly break-even; the $1M–$10M bucket alone returned +3.04% mean (40% win rate, n=10). Adding R11 at $200K cuts out the worst 67 of 97 universal-strategy trades while preserving every trade in the meaningfully-positive bucket.
+
+**R12 rationale**: live-fire validated on 2026-05-20. The v0.3.1 listener surfaced exactly **one** R1-through-R11-passing candidate (`HeavyPulp`, MC $472K, 6018 holders, LP burned 68%, bundle 1.58%, smart-money cluster buy). All 11 hard-coded rules were ✅. The token report also showed `devRugPullTokenCount: 105, devLaunchedTokenCount: 54, devCreateTokenCount: 11895, tokenTags: [devHoldingStatusSellAll, ...]` — a serial-rug deployer who had already cashed out of THIS token's launch tranche. v0.3 would have approved the trade. v0.4 rejects on R12. See `references/r12-live-rejection.md` for the full transcript and screenshots of the rejection. The threshold is hard zero — token-mill deployers operate at industrial scale; even one prior rug is sufficient evidence of intent, and the false-positive cost (skipping a few legitimate trades by clean-but-experienced devs) is acceptable next to the realized loss of trusting a serial-rug pull.
 
 ## Position Sizing
 
@@ -245,13 +248,19 @@ listener:
 filter:
   min_holders: 50                        # R9
   min_liquidity_usd: 20000               # R10
-  min_market_cap_usd: 200000             # R11 (v0.3, new)
+  min_market_cap_usd: 200000             # R11
   max_top1_pct: 0.20                     # R4
   max_top10_pct: 0.50                    # R5
   max_bundle_holding_pct: 0.10           # R6
   min_token_age_minutes: 30              # R8
   min_lp_burned_pct: 50                  # R3
   max_price_impact_pct: 5                # R7
+  max_dev_rug_count: 0                   # R12 (v0.4, new) — strict zero
+regime:                                  # v0.4 — observed only, no automatic action yet
+  track: true                            # at every listener run, log the % of signals with sold>50%
+  field: signal_regime_pct               # written to journal `regime.buy_heavy_pct` / `regime.sell_heavy_pct`
+  hot_threshold: 25                      # buy_heavy_pct > 25 → "bullish-leaning regime"
+  cold_threshold: 5                      # buy_heavy_pct < 5  → "distribution-mode regime" (current state as of 5/20)
 sizing:
   win_prob: 0.35
   avg_win_pct: 1.5
